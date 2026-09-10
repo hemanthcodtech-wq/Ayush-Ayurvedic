@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Disallow admin or private areas (none currently)
+Disallow: /api/
+
+# Crawl-delay for respectful indexing
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://ayushayurvedapanchakaranam.com/sitemap.xml
+
+# Additional search engine specific directives
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 10
