@@ -15,6 +15,7 @@ import PricingPage from './pages/PricingPage';
 import GalleryPage from './pages/GalleryPage';
 import TestimonialsPage from './pages/TestimonialsPage';
 import BlogPage from './pages/BlogPage';
+import BlogDetailPage from './pages/BlogDetailPage';
 import ContactPage from './pages/ContactPage';
 import BookAppointmentPage from './pages/BookAppointmentPage';
 import ClaysPage from './pages/ClaysPage';
@@ -129,6 +130,14 @@ export default function App() {
             path="/blog" 
             element={
               <BlogPage 
+                onOpenBooking={handleOpenBooking} 
+              />
+            } 
+          />
+          <Route 
+            path="/blog/:id" 
+            element={
+              <BlogDetailPage 
                 onOpenBooking={handleOpenBooking} 
               />
             } 

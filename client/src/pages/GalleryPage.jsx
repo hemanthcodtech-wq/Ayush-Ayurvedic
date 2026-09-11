@@ -4,7 +4,6 @@ import { galleryPhotos } from '../data/ayurvedaData';
 
 export default function GalleryPage({ onOpenBooking }) {
   const [activeFilter, setActiveFilter] = useState('All');
-  const [selectedImage, setSelectedImage] = useState(null);
 
   const categories = ['All', 'Therapies', 'Massages', 'Panchakarma', 'Facials', 'Center'];
 
@@ -64,14 +63,12 @@ export default function GalleryPage({ onOpenBooking }) {
             {filteredPhotos.map(photo => (
               <div
                 key={photo.id}
-                onClick={() => setSelectedImage(photo)}
                 style={{
                   backgroundColor: '#ffffff',
                   borderRadius: 'var(--radius-md)',
                   border: '1px solid var(--color-border)',
                   overflow: 'hidden',
                   boxShadow: 'var(--shadow-sm)',
-                  cursor: 'pointer',
                   transition: 'var(--transition)',
                   position: 'relative'
                 }}
@@ -90,17 +87,6 @@ export default function GalleryPage({ onOpenBooking }) {
                     alt={photo.title} 
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
-                  <div style={{
-                    position: 'absolute',
-                    top: '12px',
-                    right: '12px',
-                    backgroundColor: 'rgba(0,0,0,0.5)',
-                    color: '#ffffff',
-                    padding: '6px',
-                    borderRadius: '50%'
-                  }}>
-                    <ZoomIn size={16} />
-                  </div>
                 </div>
 
                 <div style={{ padding: '16px' }}>
@@ -121,65 +107,6 @@ export default function GalleryPage({ onOpenBooking }) {
 
         </div>
       </section>
-
-      {/* Lightbox Modal */}
-      {selectedImage && (
-        <div className="modal-overlay" onClick={() => setSelectedImage(null)}>
-          <div 
-            className="modal-content" 
-            onClick={(e) => e.stopPropagation()} 
-            style={{ maxWidth: '800px', backgroundColor: '#000000', color: '#ffffff', border: 'none' }}
-          >
-            <div style={{ position: 'relative' }}>
-              <button 
-                onClick={() => setSelectedImage(null)}
-                style={{
-                  position: 'absolute',
-                  top: '16px',
-                  right: '16px',
-                  backgroundColor: 'rgba(0,0,0,0.6)',
-                  color: '#ffffff',
-                  border: 'none',
-                  borderRadius: '50%',
-                  padding: '8px',
-                  cursor: 'pointer',
-                  zIndex: 10
-                }}
-              >
-                <X size={24} />
-              </button>
-              
-              <img 
-                src={selectedImage.image} 
-                alt={selectedImage.title} 
-                style={{ width: '100%', maxHeight: '70vh', objectFit: 'contain', display: 'block' }}
-              />
-
-              <div style={{ padding: '20px 24px', backgroundColor: '#1a1a1a', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
-                <div>
-                  <h3 style={{ color: '#ffffff', fontSize: '1.3rem', margin: 0 }}>
-                    {selectedImage.title}
-                  </h3>
-                  <p style={{ color: '#aaa', fontSize: '0.88rem', margin: '4px 0 0' }}>
-                    {selectedImage.description}
-                  </p>
-                </div>
-                <button 
-                  onClick={() => {
-                    setSelectedImage(null);
-                    onOpenBooking();
-                  }}
-                  className="btn-gold"
-                  style={{ padding: '8px 20px', fontSize: '0.85rem' }}
-                >
-                  <Calendar size={14} />
-                  <span>Book Appointment</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
     </div>
   );

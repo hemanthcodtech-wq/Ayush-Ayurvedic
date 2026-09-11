@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { BookOpen, Clock, User, ArrowRight, X, Calendar, Share2, Sparkles } from 'lucide-react';
 import { blogPosts } from '../data/ayurvedaData';
 
 export default function BlogPage({ onOpenBooking }) {
-  const [selectedArticle, setSelectedArticle] = useState(null);
+  const navigate = useNavigate();
 
   return (
     <div className="blog-page animate-fade-in">
@@ -77,7 +78,7 @@ export default function BlogPage({ onOpenBooking }) {
                   </p>
 
                   <button
-                    onClick={() => setSelectedArticle(post)}
+                    onClick={() => navigate(`/blog/${post.id}`)}
                     className="btn-primary"
                     style={{ width: '100%', padding: '10px 18px', fontSize: '0.88rem' }}
                   >
@@ -93,83 +94,6 @@ export default function BlogPage({ onOpenBooking }) {
 
         </div>
       </section>
-
-      {/* Full Article Reader Modal */}
-      {selectedArticle && (
-        <div className="modal-overlay" onClick={() => setSelectedArticle(null)}>
-          <div 
-            className="modal-content" 
-            onClick={(e) => e.stopPropagation()} 
-            style={{ maxWidth: '780px', maxHeight: '90vh' }}
-          >
-            {/* Header */}
-            <div style={{
-              backgroundColor: 'var(--color-primary-dark)',
-              color: '#ffffff',
-              padding: '24px 30px',
-              position: 'relative'
-            }}>
-              <button 
-                onClick={() => setSelectedArticle(null)}
-                style={{ position: 'absolute', top: '20px', right: '20px', background: 'none', border: 'none', color: '#ffffff', cursor: 'pointer' }}
-              >
-                <X size={24} />
-              </button>
-
-              <span style={{ color: '#ffd700', fontSize: '0.8rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                {selectedArticle.category}
-              </span>
-              <h2 style={{ color: '#ffffff', fontSize: '1.6rem', marginTop: '6px', marginBottom: '8px', lineHeight: '1.3' }}>
-                {selectedArticle.title}
-              </h2>
-              <div style={{ fontSize: '0.82rem', color: '#c2d1c6' }}>
-                Published by {selectedArticle.author} • {selectedArticle.date} • {selectedArticle.readTime}
-              </div>
-            </div>
-
-            {/* Content Body */}
-            <div style={{ padding: '30px', fontSize: '0.95rem', color: '#333', lineHeight: '1.8' }}>
-              
-              <div style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', marginBottom: '24px', maxHeight: '300px' }}>
-                <img 
-                  src={selectedArticle.image} 
-                  alt={selectedArticle.title} 
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
-              </div>
-
-              {/* Render article content paragraphs */}
-              <div style={{ whiteSpace: 'pre-line' }}>
-                {selectedArticle.content}
-              </div>
-
-              {/* Action Box */}
-              <div style={{ backgroundColor: 'var(--color-primary-subtle)', borderRadius: 'var(--radius-md)', padding: '20px', marginTop: '30px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px' }}>
-                <div>
-                  <h4 style={{ color: 'var(--color-primary-dark)', fontSize: '1.1rem', margin: 0 }}>
-                    Experience this therapy in Kompally
-                  </h4>
-                  <div style={{ fontSize: '0.85rem', color: '#555' }}>
-                    Consult with our Ayurvedic specialists for tailored dosage and oils.
-                  </div>
-                </div>
-                <button
-                  onClick={() => {
-                    setSelectedArticle(null);
-                    onOpenBooking();
-                  }}
-                  className="btn-primary"
-                  style={{ padding: '10px 22px' }}
-                >
-                  <Calendar size={15} />
-                  <span>Book Consultation</span>
-                </button>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      )}
 
     </div>
   );

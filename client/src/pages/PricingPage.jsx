@@ -20,6 +20,10 @@ export default function PricingPage({ onOpenBooking }) {
   const handleInquirySubmit = (e) => {
     e.preventDefault();
     setInquirySent(true);
+    
+    const text = `*New Ritucharya & Seasonal Offers Signup*%0A*Name:* ${inquiryName}%0A*Email:* ${inquiryEmail}`;
+    window.open(`https://wa.me/${clinicInfo.whatsappNumber}?text=${text}`, '_blank');
+
     setTimeout(() => {
       setInquirySent(false);
       setInquiryName('');
