@@ -31,7 +31,7 @@ export default function AboutPage({ setActivePage, onOpenBooking, onOpenDoshaQui
       </section>
 
       {/* Origin & Philosophy */}
-      <section style={{ padding: '80px 0', backgroundColor: 'var(--color-cream)' }}>
+      <section className="py-12 md:py-20 bg-[#fbf9f5]">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '50px', alignItems: 'center' }}>
             
@@ -49,7 +49,7 @@ export default function AboutPage({ setActivePage, onOpenBooking, onOpenDoshaQui
                 Located at <strong>Raichandani 5 Star Complex, Opp. Pista House, Pet Basheerabad, Kompally</strong>, our state-of-the-art facility brings authentic Kerala therapy tables (Droni), traditional bronze brassware, pure herbal medicated decoctions, and certified Kerala therapists directly to North Hyderabad.
               </p>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '28px' }}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-7">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem', color: 'var(--color-primary-dark)', fontWeight: '600' }}>
                   <CheckCircle2 size={18} color="var(--color-primary)" />
                   <span>Nadi Pariksha (Pulse Exam)</span>
@@ -90,7 +90,7 @@ export default function AboutPage({ setActivePage, onOpenBooking, onOpenDoshaQui
       </section>
 
       {/* The 5 Panchakarma Pillars Detailed */}
-      <section style={{ padding: '80px 0', backgroundColor: '#ffffff', borderTop: '1px solid var(--color-border)', borderBottom: '1px solid var(--color-border)' }}>
+      <section className="py-12 md:py-20 bg-white border-y border-[#e8dec8]">
         <div className="container">
           
           <div className="section-title-wrap">
@@ -148,7 +148,7 @@ export default function AboutPage({ setActivePage, onOpenBooking, onOpenDoshaQui
       </section>
 
       {/* Why Choose Us & Standards */}
-      <section style={{ padding: '80px 0', backgroundColor: 'var(--color-sand)' }}>
+      <section className="py-12 md:py-20 bg-[#fbf9f5]">
         <div className="container">
           
           <div className="section-title-wrap">
@@ -213,7 +213,7 @@ export default function AboutPage({ setActivePage, onOpenBooking, onOpenDoshaQui
       </section>
 
       {/* CTA Section */}
-      <section style={{ backgroundColor: 'var(--color-primary-dark)', color: '#ffffff', padding: '60px 0', textAlign: 'center' }}>
+      <section className="bg-[#0b351a] text-white py-12 md:py-16 text-center">
         <div className="container">
           <h2 style={{ color: '#ffffff', fontSize: '2.2rem', marginBottom: '14px' }}>
             Begin Your Natural Healing Journey Today

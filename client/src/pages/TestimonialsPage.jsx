@@ -112,7 +112,7 @@ export default function TestimonialsPage({ onOpenBooking }) {
                 </div>
               ) : (
                 <form onSubmit={handleSubmitReview}>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '14px' }}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                     <div>
                       <label className="form-label">Your Name *</label>
                       <input 
@@ -136,7 +136,7 @@ export default function TestimonialsPage({ onOpenBooking }) {
                     </div>
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '14px' }}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                     <div>
                       <label className="form-label">Therapy Taken</label>
                       <input 

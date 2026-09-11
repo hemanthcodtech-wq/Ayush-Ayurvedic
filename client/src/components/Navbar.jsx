@@ -99,13 +99,13 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
           </div>
 
           {/* Right Info: Dosha Quiz & Direct Phone */}
-          <div className="flex items-center gap-3 ml-auto text-xs">
+          <div className="flex items-center gap-3 ml-auto text-xs mt-1 sm:mt-0">
             <button 
               onClick={onOpenDoshaQuiz}
-              className="hidden md:inline-flex items-center gap-1.5 bg-[#c59d5f]/20 hover:bg-[#c59d5f]/30 text-[#f7e7ce] px-3 py-1 rounded-full border border-[#c59d5f]/40 transition-colors font-medium text-[11px]"
+              className="hidden sm:inline-flex items-center gap-1.5 bg-[#c59d5f]/20 hover:bg-[#c59d5f]/30 text-[#f7e7ce] px-3 py-1 rounded-full border border-[#c59d5f]/40 transition-colors font-medium text-[11px]"
             >
               <Sparkles size={12} className="text-[#ffd700]" />
-              <span>Prakriti Dosha Quiz</span>
+              <span>Prakriti Quiz</span>
             </button>
 
             <a 
@@ -133,13 +133,13 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
           {/* Brand Logo & Taglines */}
           <Link 
             to="/" 
-            className="flex items-center gap-3 group shrink-0 text-decoration-none"
+            className="flex items-center gap-2 sm:gap-3 group shrink min-w-0 text-decoration-none"
           >
-            <div className="relative">
+            <div className="relative shrink-0">
               <img 
                 src="/images/logo.jpg" 
                 alt="Ayush Ayurveda Logo" 
-                className="w-12 h-12 rounded-full border-2 border-[#c59d5f] object-cover shadow-sm transition-transform duration-300 group-hover:scale-105"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-[#c59d5f] object-cover shadow-sm transition-transform duration-300 group-hover:scale-105"
               />
               <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#0b351a] rounded-full border border-[#c59d5f] flex items-center justify-center text-[8px] text-[#ffd700]">
                 ✦
@@ -147,13 +147,13 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
             </div>
 
             <div className="flex flex-col">
-              <span className="font-serif font-bold text-lg leading-tight text-[#0b351a] tracking-wide group-hover:text-[#062411] transition-colors">
+              <span className="font-serif font-bold text-sm sm:text-lg leading-tight text-[#0b351a] tracking-wide group-hover:text-[#062411] transition-colors truncate">
                 AYUSH AYURVEDA
               </span>
-              <span className="text-[10px] font-bold text-[#a67c38] tracking-[1.5px] uppercase">
+              <span className="text-[8px] sm:text-[10px] font-bold text-[#a67c38] tracking-[1.5px] uppercase truncate">
                 Panchakaranam • Kompally
               </span>
-              <span className="text-[9.5px] text-[#666] italic leading-none hidden xs:block">
+              <span className="text-[7px] sm:text-[9.5px] text-[#666] italic leading-none hidden xs:block truncate">
                 Pain &amp; Lifestyle Care
               </span>
             </div>
@@ -355,11 +355,11 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
             
             <button 
               onClick={() => onOpenBooking ? onOpenBooking() : navigate('/book-appointment')}
-              className="btn-primary py-2.5 px-5 rounded-full text-[13px] font-semibold flex items-center gap-2 shadow-md hover:shadow-lg transition-all duration-300"
+              className="btn-primary !px-3 !py-1.5 sm:!py-2.5 sm:!px-5 rounded-full text-[11px] sm:text-[13px] font-semibold flex items-center gap-1 sm:gap-2 shadow-md hover:shadow-lg transition-all duration-300 shrink-0"
             >
-              <Calendar size={15} />
-              <span className="hidden sm:inline">Book Appointment</span>
-              <span className="sm:hidden">Book Now</span>
+              <Calendar size={13} className="sm:w-[15px] sm:h-[15px] shrink-0" />
+              <span className="hidden sm:inline whitespace-nowrap">Book Appointment</span>
+              <span className="sm:hidden whitespace-nowrap">Book Now</span>
             </button>
 
             {/* Mobile / Tablet Drawer Toggle Button */}
@@ -378,8 +378,8 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
 
       {/* 3. MOBILE & TABLET SLIDE-OUT LUXURY DRAWER */}
       {mobileMenuOpen && (
-        <div className="xl:hidden fixed inset-x-0 top-[110px] bottom-0 bg-stone-950/60 backdrop-blur-sm z-40 animate-fadeIn overflow-y-auto">
-          <div className="bg-[#FFFDF9] border-b border-[#e8dec8] p-5 shadow-2xl max-h-[85vh] overflow-y-auto">
+        <div className="xl:hidden fixed inset-x-0 top-[90px] sm:top-[100px] bottom-0 bg-stone-950/60 backdrop-blur-sm z-40 animate-fadeIn overflow-y-auto">
+          <div className="bg-[#FFFDF9] border-b border-[#e8dec8] p-5 shadow-2xl max-h-screen overflow-y-auto pb-20">
             
             <div className="flex flex-col space-y-1">
               

@@ -5,7 +5,7 @@ import { Sparkles, Shield, HeartPulse, Droplets, CheckCircle, Phone, MessageSqua
 
 export default function ClaysPage({ onOpenBooking, setActivePage }) {
   return (
-    <div className="pt-24 pb-16">
+    <div className="pt-24 pb-16 bg-stone-950">
       
       {/* Hero Banner */}
       <section className="relative py-16 md:py-24 bg-gradient-to-b from-stone-950 via-stone-900 to-stone-950 overflow-hidden border-b border-stone-800">
@@ -36,9 +36,9 @@ export default function ClaysPage({ onOpenBooking, setActivePage }) {
 
             <a
               href={`tel:${clinicInfo.phoneRaw}`}
-              className="btn-outline py-3.5 px-6 rounded-xl text-sm font-semibold flex items-center gap-2 border-stone-700 text-stone-300 hover:text-white hover:border-amber-400"
+              className="py-3.5 px-6 rounded-xl text-sm font-semibold flex items-center gap-2 border-2 border-stone-700 text-stone-300 hover:text-white hover:border-amber-400 hover:bg-stone-800 transition-all"
             >
-              <Phone size={16} className="text-primary-gold" />
+              <Phone size={16} className="text-gold" />
               <span>Call: {clinicInfo.phones[0]}</span>
             </a>
           </div>
@@ -46,19 +46,19 @@ export default function ClaysPage({ onOpenBooking, setActivePage }) {
           {/* Quick stats pills */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-8 border-t border-stone-800/80 max-w-3xl mx-auto text-left">
             <div className="bg-stone-900/60 p-4 rounded-xl border border-stone-800">
-              <span className="text-2xl font-serif font-bold text-primary-gold block">19 Types</span>
+              <span className="text-2xl font-serif font-bold text-gold block">19 Types</span>
               <span className="text-xs text-stone-400">Authentic Clays & Muds</span>
             </div>
             <div className="bg-stone-900/60 p-4 rounded-xl border border-stone-800">
-              <span className="text-2xl font-serif font-bold text-primary-gold block">100% Pure</span>
+              <span className="text-2xl font-serif font-bold text-gold block">100% Pure</span>
               <span className="text-xs text-stone-400">Natural & Organic Sourced</span>
             </div>
             <div className="bg-stone-900/60 p-4 rounded-xl border border-stone-800">
-              <span className="text-2xl font-serif font-bold text-primary-gold block">45 Mins</span>
+              <span className="text-2xl font-serif font-bold text-gold block">45 Mins</span>
               <span className="text-xs text-stone-400">Comprehensive Ritual</span>
             </div>
             <div className="bg-stone-900/60 p-4 rounded-xl border border-stone-800">
-              <span className="text-2xl font-serif font-bold text-primary-gold block">Kompally</span>
+              <span className="text-2xl font-serif font-bold text-gold block">Kompally</span>
               <span className="text-xs text-stone-400">Clinic Consultation</span>
             </div>
           </div>
@@ -88,7 +88,7 @@ export default function ClaysPage({ onOpenBooking, setActivePage }) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-stone-900/80 border border-stone-800 p-6 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 text-primary-gold flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 text-gold flex items-center justify-center mb-4">
                 <Shield size={24} />
               </div>
               <h3 className="text-lg font-serif font-bold text-stone-200 mb-2">
@@ -100,7 +100,7 @@ export default function ClaysPage({ onOpenBooking, setActivePage }) {
             </div>
 
             <div className="bg-stone-900/80 border border-stone-800 p-6 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 text-primary-gold flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 text-gold flex items-center justify-center mb-4">
                 <Droplets size={24} />
               </div>
               <h3 className="text-lg font-serif font-bold text-stone-200 mb-2">
@@ -112,7 +112,7 @@ export default function ClaysPage({ onOpenBooking, setActivePage }) {
             </div>
 
             <div className="bg-stone-900/80 border border-stone-800 p-6 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 text-primary-gold flex items-center justify-center mb-4">
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 text-gold flex items-center justify-center mb-4">
                 <HeartPulse size={24} />
               </div>
               <h3 className="text-lg font-serif font-bold text-stone-200 mb-2">

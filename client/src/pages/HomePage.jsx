@@ -72,7 +72,7 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
     <div className="home-page animate-fade-in">
       
       {/* 1. HERO SLIDER SECTION */}
-      <section style={{ position: 'relative', height: '640px', overflow: 'hidden', backgroundColor: '#0b351a' }}>
+      <section className="relative h-[85vh] min-h-[500px] md:h-[640px] overflow-hidden bg-[#0b351a]">
         {heroSlides.map((slide, idx) => (
           <div
             key={idx}
@@ -182,7 +182,7 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
       </section>
 
       {/* 2. TOP TRUST BADGES STRIP */}
-      <section style={{ backgroundColor: '#ffffff', borderBottom: '1px solid var(--color-border)', padding: '24px 0', boxShadow: 'var(--shadow-sm)' }}>
+      <section className="bg-white border-b border-[#e8dec8] py-6 shadow-sm">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px' }}>
             
@@ -231,7 +231,7 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
       </section>
 
       {/* 3. WELCOME & ABOUT ESSENCE SECTION */}
-      <section style={{ padding: '80px 0', backgroundColor: 'var(--color-cream)' }}>
+      <section className="py-12 md:py-20 bg-[#fbf9f5]">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '50px', alignItems: 'center' }}>
             
@@ -340,7 +340,7 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
       </section>
 
       {/* 4. CLASSICAL 5 PANCHAKARMA PILLARS SECTION */}
-      <section style={{ padding: '80px 0', backgroundColor: '#ffffff', borderTop: '1px solid var(--color-border)', borderBottom: '1px solid var(--color-border)' }}>
+      <section className="py-12 md:py-20 bg-white border-y border-[#e8dec8]">
         <div className="container">
           
           <div className="section-title-wrap">
@@ -425,7 +425,7 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
       </section>
 
       {/* 5. FEATURED THERAPIES SHOWCASE */}
-      <section style={{ padding: '80px 0', backgroundColor: 'var(--color-cream)' }}>
+      <section className="py-12 md:py-20 bg-[#fbf9f5]">
         <div className="container">
           
           <div className="section-title-wrap">
@@ -566,7 +566,7 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
       </div>
 
       {/* 6. ANIMATED HEADLINE & ROTATING BANNER */}
-      <section style={{ backgroundColor: 'var(--color-primary-dark)', color: '#ffffff', padding: '70px 0', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+      <section className="bg-[#0b351a] text-white py-12 md:py-20 text-center relative overflow-hidden">
         <div className="container">
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             
@@ -599,7 +599,7 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
       </section>
 
       {/* 7. EXPERIENCE COUNTERS STRIP */}
-      <section style={{ backgroundColor: '#ffffff', padding: '60px 0', borderBottom: '1px solid var(--color-border)' }}>
+      <section className="bg-white py-12 md:py-16 border-b border-[#e8dec8]">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '30px', textAlign: 'center' }}>
             
@@ -626,7 +626,7 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
       </section>
 
       {/* 8. GALLERY HIGHLIGHTS */}
-      <section style={{ padding: '80px 0', backgroundColor: 'var(--color-sand)' }}>
+      <section className="py-12 md:py-20 bg-[#fbf9f5]">
         <div className="container">
           
           <div className="section-title-wrap">
@@ -698,7 +698,7 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
       </section>
 
       {/* 9. TESTIMONIALS SLIDER */}
-      <section style={{ padding: '80px 0', backgroundColor: '#ffffff', borderTop: '1px solid var(--color-border)' }}>
+      <section className="py-12 md:py-20 bg-white border-t border-[#e8dec8]">
         <div className="container">
           
           <div className="section-title-wrap">
@@ -772,7 +772,7 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
       </section>
 
       {/* 10. LATEST BLOG ARTICLES SECTION */}
-      <section style={{ padding: '80px 0', backgroundColor: 'var(--color-sand)' }}>
+      <section className="py-12 md:py-20 bg-[#fbf9f5]">
         <div className="container">
           
           <div className="section-title-wrap">
@@ -849,7 +849,7 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
       </section>
 
       {/* 11. LOCATION & BOOKING BANNER */}
-      <section style={{ backgroundColor: 'var(--color-primary)', color: '#ffffff', padding: '60px 0' }}>
+      <section className="bg-[#0b351a] text-white py-12 md:py-16">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', alignItems: 'center' }}>
             
@@ -878,7 +878,7 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
               </div>
             </div>
 
-            <div style={{ textAlign: 'right' }}>
+            <div className="text-left md:text-right mt-6 md:mt-0">
               <button 
                 onClick={onOpenBooking}
                 className="btn-gold animate-pulse-gold"

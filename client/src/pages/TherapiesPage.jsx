@@ -82,7 +82,7 @@ export default function TherapiesPage({ onOpenBooking, onSelectTherapy }) {
             </div>
 
             {/* Category Filter Tabs */}
-            <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div className="flex gap-2 sm:gap-3 overflow-x-auto pb-2 justify-start sm:justify-center px-4 sm:px-0 -mx-4 sm:mx-0 hide-scrollbar flex-nowrap sm:flex-wrap">
               {therapyCategories.map(cat => (
                 <button
                   key={cat.id}
@@ -96,8 +96,8 @@ export default function TherapiesPage({ onOpenBooking, onSelectTherapy }) {
                     fontWeight: selectedCategory === cat.id ? '600' : '500',
                     fontSize: '0.88rem',
                     cursor: 'pointer',
-                    whiteSpace: 'nowrap',
-                    transition: 'all 0.2s ease'
+                    transition: 'all 0.2s ease',
+                    flexShrink: 0
                   }}
                 >
                   {cat.name}
@@ -246,18 +246,16 @@ export default function TherapiesPage({ onOpenBooking, onSelectTherapy }) {
                     )}
 
                     {/* Buttons */}
-                    <div style={{ display: 'flex', gap: '8px', marginTop: 'auto' }}>
+                    <div className="flex gap-2 mt-auto">
                       <button 
                         onClick={() => onSelectTherapy(therapy)}
-                        className="btn-outline"
-                        style={{ padding: '8px 12px', fontSize: '0.82rem', flex: 1 }}
+                        className="btn-outline flex-1 py-2 text-[0.82rem]"
                       >
                         Details
                       </button>
                       <button 
                         onClick={() => onOpenBooking(therapy.id)}
-                        className="btn-primary"
-                        style={{ padding: '8px 12px', fontSize: '0.82rem', flex: 1 }}
+                        className="btn-primary flex-1 py-2 text-[0.82rem] !px-0"
                       >
                         Book
                       </button>

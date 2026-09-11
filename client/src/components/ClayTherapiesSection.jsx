@@ -35,7 +35,7 @@ export default function ClayTherapiesSection({ onOpenBooking, setActivePage, isS
       
       {/* Decorative Aura background elements */}
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-primary-gold/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-gold/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container-custom relative z-10">
         
@@ -61,7 +61,7 @@ export default function ClayTherapiesSection({ onOpenBooking, setActivePage, isS
             
             {/* Dropdown Label & Control */}
             <div className="w-full md:w-auto flex items-center gap-3">
-              <span className="text-xs uppercase tracking-wider font-semibold text-primary-gold whitespace-nowrap flex items-center gap-1.5">
+              <span className="text-xs uppercase tracking-wider font-semibold text-gold whitespace-nowrap flex items-center gap-1.5">
                 <Layers size={15} />
                 Select Pure Clay:
               </span>
@@ -77,7 +77,7 @@ export default function ClayTherapiesSection({ onOpenBooking, setActivePage, isS
                     </option>
                   ))}
                 </select>
-                <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-primary-gold">
+                <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-gold">
                   <ChevronDown size={18} />
                 </div>
               </div>
@@ -93,7 +93,7 @@ export default function ClayTherapiesSection({ onOpenBooking, setActivePage, isS
                     onClick={() => setSelectedClayId(clay.id)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-300 ${
                       isActive 
-                        ? 'bg-amber-500/20 text-primary-gold border border-amber-500/40 shadow-sm' 
+                        ? 'bg-amber-500/20 text-gold border border-amber-500/40 shadow-sm' 
                         : 'bg-stone-800/50 text-stone-400 border border-stone-800 hover:text-stone-200 hover:bg-stone-800'
                     }`}
                   >
@@ -156,7 +156,7 @@ export default function ClayTherapiesSection({ onOpenBooking, setActivePage, isS
                 
                 {/* Title & Tagline */}
                 <div className="border-b border-stone-800 pb-6 mb-6">
-                  <div className="flex items-center gap-2 text-primary-gold text-xs font-semibold tracking-wider uppercase mb-1">
+                  <div className="flex items-center gap-2 text-gold text-xs font-semibold tracking-wider uppercase mb-1">
                     <span>Therapy #{currentClay.number} of 19</span>
                     <span>•</span>
                     <span>{currentClay.origin}</span>
@@ -175,7 +175,7 @@ export default function ClayTherapiesSection({ onOpenBooking, setActivePage, isS
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                   <div className="bg-stone-800/40 border border-stone-800 rounded-xl p-3.5">
                     <div className="flex items-center gap-1.5 text-xs text-stone-400 mb-1">
-                      <Droplets size={14} className="text-primary-gold" />
+                      <Droplets size={14} className="text-gold" />
                       <span className="font-semibold uppercase tracking-wider">Suitable Skin Type</span>
                     </div>
                     <p className="text-xs text-stone-200 font-medium">
@@ -202,7 +202,7 @@ export default function ClayTherapiesSection({ onOpenBooking, setActivePage, isS
                   
                   {/* Mineral Composition Bar */}
                   <div className="bg-stone-950/60 border border-stone-800/80 rounded-xl p-3 text-xs text-stone-300">
-                    <span className="text-primary-gold font-semibold">Active Mineral Composition: </span>
+                    <span className="text-gold font-semibold">Active Mineral Composition: </span>
                     {currentClay.composition}
                   </div>
                 </div>
@@ -313,7 +313,7 @@ export default function ClayTherapiesSection({ onOpenBooking, setActivePage, isS
                       </span>
                     </div>
 
-                    <h4 className="text-sm font-serif font-bold text-stone-100 group-hover:text-primary-gold transition-colors line-clamp-1">
+                    <h4 className="text-sm font-serif font-bold text-stone-100 group-hover:text-gold transition-colors line-clamp-1">
                       {clay.name}
                     </h4>
 
@@ -328,7 +328,7 @@ export default function ClayTherapiesSection({ onOpenBooking, setActivePage, isS
 
                   <div className="mt-3 pt-2 border-t border-stone-800/80 flex items-center justify-between text-[11px]">
                     <span className="text-stone-400">{clay.duration}</span>
-                    <span className={`font-semibold ${isSelected ? 'text-primary-gold' : 'text-stone-500 group-hover:text-stone-300'}`}>
+                    <span className={`font-semibold ${isSelected ? 'text-gold' : 'text-stone-500 group-hover:text-stone-300'}`}>
                       {isSelected ? '● Active' : 'Select →'}
                     </span>
                   </div>
@@ -341,7 +341,7 @@ export default function ClayTherapiesSection({ onOpenBooking, setActivePage, isS
         {/* Authentic Center Clay Therapy Menu & Guarantee Card */}
         <div className="bg-gradient-to-r from-amber-950/30 via-stone-900 to-amber-950/20 border border-amber-500/20 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shrink-0 text-primary-gold">
+            <div className="w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shrink-0 text-gold">
               <ShieldCheck size={32} />
             </div>
             <div>

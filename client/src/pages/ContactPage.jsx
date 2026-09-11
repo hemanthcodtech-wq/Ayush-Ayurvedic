@@ -199,7 +199,7 @@ export default function ContactPage({ onOpenBooking }) {
                     />
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '14px' }}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                     <div className="form-group" style={{ margin: 0 }}>
                       <label className="form-label">Phone Number *</label>
                       <input 

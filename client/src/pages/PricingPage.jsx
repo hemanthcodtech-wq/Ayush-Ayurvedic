@@ -44,7 +44,7 @@ export default function PricingPage({ onOpenBooking }) {
       </section>
 
       {/* Main Pricing Tables */}
-      <section style={{ padding: '70px 0', backgroundColor: 'var(--color-sand)' }}>
+      <section className="py-12 md:py-20 bg-[#fbf9f5]">
         <div className="container-narrow">
           
           <div className="section-title-wrap">
@@ -108,7 +108,7 @@ export default function PricingPage({ onOpenBooking }) {
       </section>
 
       {/* Wellness Packages Section */}
-      <section style={{ padding: '80px 0', backgroundColor: '#ffffff', borderTop: '1px solid var(--color-border)', borderBottom: '1px solid var(--color-border)' }}>
+      <section className="py-12 md:py-20 bg-white border-y border-[#e8dec8]">
         <div className="container">
           
           <div className="section-title-wrap">
@@ -200,7 +200,7 @@ export default function PricingPage({ onOpenBooking }) {
       </section>
 
       {/* Inquiry / Updates Form */}
-      <section style={{ padding: '60px 0', backgroundColor: 'var(--color-sand)' }}>
+      <section className="py-12 md:py-16 bg-[#fbf9f5]">
         <div className="container-narrow">
           <div style={{ backgroundColor: '#ffffff', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', padding: '36px', boxShadow: 'var(--shadow-sm)' }}>
             
@@ -218,7 +218,7 @@ export default function PricingPage({ onOpenBooking }) {
                 ✓ Thank you! We have received your details. Our care team will contact you shortly.
               </div>
             ) : (
-              <form onSubmit={handleInquirySubmit} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr auto', gap: '14px', alignItems: 'center' }}>
+              <form onSubmit={handleInquirySubmit} className="grid grid-cols-1 md:grid-cols-[1fr_1fr_auto] gap-4 items-center">
                 <input 
                   type="text" 
                   placeholder="Your Name" 
