@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Search, 
   Clock, 
@@ -193,20 +194,7 @@ export default function TherapiesPage({ onOpenBooking, onSelectTherapy }) {
                     }}>
                       {therapy.categoryName}
                     </div>
-                    <div style={{
-                      position: 'absolute',
-                      bottom: '10px',
-                      right: '10px',
-                      backgroundColor: '#ffffff',
-                      color: 'var(--color-primary)',
-                      fontWeight: '700',
-                      fontSize: '0.9rem',
-                      padding: '4px 12px',
-                      borderRadius: 'var(--radius-full)',
-                      boxShadow: '0 2px 6px rgba(0,0,0,0.15)'
-                    }}>
-                      {therapy.priceFormatted}
-                    </div>
+
                   </div>
 
                   {/* Body */}
@@ -247,12 +235,13 @@ export default function TherapiesPage({ onOpenBooking, onSelectTherapy }) {
 
                     {/* Buttons */}
                     <div className="flex gap-2 mt-auto">
-                      <button 
-                        onClick={() => onSelectTherapy(therapy)}
-                        className="btn-outline flex-1 py-2 text-[0.82rem]"
+                      <Link 
+                        to={`/therapies/${therapy.id}`}
+                        className="btn-outline flex-1 py-2 text-[0.82rem] text-center flex items-center justify-center"
+                        style={{ textDecoration: 'none' }}
                       >
                         Details
-                      </button>
+                      </Link>
                       <button 
                         onClick={() => onOpenBooking(therapy.id)}
                         className="btn-primary flex-1 py-2 text-[0.82rem] !px-0"

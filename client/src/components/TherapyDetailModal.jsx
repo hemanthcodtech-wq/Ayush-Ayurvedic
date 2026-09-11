@@ -64,10 +64,7 @@ export default function TherapyDetailModal({ therapy, isOpen, onClose, onBookThe
               <Clock size={18} color="var(--color-primary)" />
               <span>Duration: {therapy.duration}</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--color-primary)', fontWeight: '700', fontSize: '1.3rem' }}>
-              <Tag size={18} />
-              <span>{therapy.priceFormatted}</span>
-            </div>
+
           </div>
 
           {/* Description */}

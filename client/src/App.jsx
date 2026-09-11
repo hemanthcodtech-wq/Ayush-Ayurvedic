@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import FloatingActions from './components/FloatingActions';
@@ -19,6 +20,7 @@ import BlogDetailPage from './pages/BlogDetailPage';
 import ContactPage from './pages/ContactPage';
 import BookAppointmentPage from './pages/BookAppointmentPage';
 import ClaysPage from './pages/ClaysPage';
+import TherapyDetailPage from './pages/TherapyDetailPage';
 
 export default function App() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -49,7 +51,8 @@ export default function App() {
   };
 
   return (
-    <div className="ayurveda-app min-h-screen flex flex-col bg-[#FFFDF9]">
+    <HelmetProvider>
+      <div className="ayurveda-app min-h-screen flex flex-col bg-[#FFFDF9]">
       
       {/* Auto scroll-to-top on route change */}
       <ScrollToTop />
@@ -90,6 +93,14 @@ export default function App() {
               <TherapiesPage 
                 onOpenBooking={handleOpenBooking} 
                 onSelectTherapy={handleSelectTherapy} 
+              />
+            } 
+          />
+          <Route 
+            path="/therapies/:id" 
+            element={
+              <TherapyDetailPage 
+                onOpenBooking={handleOpenBooking} 
               />
             } 
           />
@@ -192,6 +203,7 @@ export default function App() {
         onOpenBooking={() => handleOpenBooking()}
       />
 
-    </div>
+      </div>
+    </HelmetProvider>
   );
 }

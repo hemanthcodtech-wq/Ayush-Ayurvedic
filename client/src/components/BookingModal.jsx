@@ -14,6 +14,7 @@ export default function BookingModal({ isOpen, onClose, preselectedTherapy }) {
   const [email, setEmail] = useState('');
   const [notes, setNotes] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [bookingId, setBookingId] = useState('');
 
   useEffect(() => {
@@ -29,15 +30,44 @@ export default function BookingModal({ isOpen, onClose, preselectedTherapy }) {
     '02:30 PM', '03:30 PM', '04:30 PM', '05:30 PM', '06:30 PM', '07:00 PM'
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!fullName || !phone) {
       alert('Please provide your name and phone number');
       return;
     }
+    
+    setIsLoading(true);
     const randomId = 'AYUSH-' + Math.floor(100000 + Math.random() * 900000);
-    setBookingId(randomId);
-    setIsSubmitted(true);
+    
+    try {
+      const response = await fetch('http://localhost:5000/api/book-appointment', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          bookingId: randomId,
+          fullName,
+          phone,
+          email,
+          selectedTherapyName: getTherapyName(),
+          selectedDate,
+          selectedTime,
+          notes
+        })
+      });
+
+      if (response.ok) {
+        setBookingId(randomId);
+        setIsSubmitted(true);
+      } else {
+        alert('Failed to submit appointment. Please try again or contact us via WhatsApp.');
+      }
+    } catch (error) {
+      console.error('Error submitting booking:', error);
+      alert('Error connecting to server. Please try again later.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const getTherapyName = () => {
@@ -179,27 +209,27 @@ export default function BookingModal({ isOpen, onClose, preselectedTherapy }) {
                   <option value="doctor-consultation">🌿 Ayurvedic Vaidya Consultation &amp; Nadi Pariksha (Pulse Exam)</option>
                   <optgroup label="Body Massages & Rejuvenation">
                     {therapies.filter(t => t.category === 'massages').map(t => (
-                      <option key={t.id} value={t.id}>{t.name} ({t.duration} - {t.priceFormatted})</option>
+                      <option key={t.id} value={t.id}>{t.name} ({t.duration})</option>
                     ))}
                   </optgroup>
                   <optgroup label="Kizhi (Potli) Therapies">
                     {therapies.filter(t => t.category === 'kizhi').map(t => (
-                      <option key={t.id} value={t.id}>{t.name} ({t.duration} - {t.priceFormatted})</option>
+                      <option key={t.id} value={t.id}>{t.name} ({t.duration})</option>
                     ))}
                   </optgroup>
                   <optgroup label="Dhara & Oil Baths">
                     {therapies.filter(t => t.category === 'dhara').map(t => (
-                      <option key={t.id} value={t.id}>{t.name} ({t.duration} - {t.priceFormatted})</option>
+                      <option key={t.id} value={t.id}>{t.name} ({t.duration})</option>
                     ))}
                   </optgroup>
                   <optgroup label="Vasti Therapies (Spine & Joint Care)">
                     {therapies.filter(t => t.category === 'vasti').map(t => (
-                      <option key={t.id} value={t.id}>{t.name} ({t.duration} - {t.priceFormatted})</option>
+                      <option key={t.id} value={t.id}>{t.name} ({t.duration})</option>
                     ))}
                   </optgroup>
                   <optgroup label="Ayur Care & Specialized Treatments">
                     {therapies.filter(t => t.category === 'ayur-care' || t.category === 'facials').map(t => (
-                      <option key={t.id} value={t.id}>{t.name} ({t.duration} - {t.priceFormatted})</option>
+                      <option key={t.id} value={t.id}>{t.name} ({t.duration})</option>
                     ))}
                   </optgroup>
                 </select>
@@ -284,10 +314,11 @@ export default function BookingModal({ isOpen, onClose, preselectedTherapy }) {
               {/* Submit Button */}
               <button 
                 type="submit" 
+                disabled={isLoading}
                 className="btn-primary" 
                 style={{ width: '100%', padding: '14px', fontSize: '1rem', marginTop: '10px' }}
               >
-                <span>Confirm Appointment Booking</span>
+                <span>{isLoading ? 'Sending Request...' : 'Confirm Appointment Booking'}</span>
               </button>
 
               <div style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.78rem', color: '#888' }}>

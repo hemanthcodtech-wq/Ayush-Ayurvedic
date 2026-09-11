@@ -10,6 +10,28 @@ import {
   ShieldCheck,
   ArrowRight
 } from 'lucide-react';
+
+const InstagramIcon = ({ size = 24, className = "" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+);
+
+const YoutubeIcon = ({ size = 24, className = "" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path>
+    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+  </svg>
+);
+
+const WhatsappIcon = ({ size = 24, className = "" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+  </svg>
+);
+
 import { clinicInfo, therapies, clayTherapies } from '../data/ayurvedaData';
 
 export default function Footer({ onOpenBooking, onOpenDoshaQuiz }) {
@@ -26,11 +48,13 @@ export default function Footer({ onOpenBooking, onOpenDoshaQuiz }) {
           {/* Column 1: Brand Info (4 cols) */}
           <div className="lg:col-span-4">
             <div className="flex items-center gap-3 mb-4">
-              <img 
-                src="/images/logo.jpg" 
-                alt="Ayush Ayurveda Logo" 
-                className="w-14 h-14 rounded-full border-2 border-[#c59d5f] object-cover"
-              />
+              <div className="w-16 h-16 rounded-full border-2 border-[#c59d5f] overflow-hidden bg-white shrink-0">
+                <img 
+                  src="/images/logo.jpg" 
+                  alt="Ayush Ayurveda Logo" 
+                  className="w-full h-full object-cover scale-[1.08] object-center"
+                />
+              </div>
               <div>
                 <h4 className="font-serif text-white text-xl font-bold tracking-wide m-0">
                   AYUSH AYURVEDA
@@ -100,14 +124,7 @@ export default function Footer({ onOpenBooking, onOpenDoshaQuiz }) {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link 
-                  to="/pricing"
-                  className="text-[#c2d1c6] hover:text-[#ffd700] block mt-2"
-                >
-                  • Complete Pricing Chart
-                </Link>
-              </li>
+
             </ul>
           </div>
 
@@ -127,11 +144,15 @@ export default function Footer({ onOpenBooking, onOpenDoshaQuiz }) {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2.5">
-                <Phone size={15} className="text-[#c59d5f] shrink-0" />
-                <a href={`tel:${clinicInfo.phoneRaw}`} className="text-[#ffd700] font-bold hover:underline">
-                  {clinicInfo.phones[0]}
-                </a>
+              <div className="flex items-start gap-2.5">
+                <Phone size={15} className="text-[#c59d5f] shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-1">
+                  {clinicInfo.phones.map((phone, idx) => (
+                    <a key={idx} href={`tel:${phone.replace(/\s/g, '')}`} className="text-[#ffd700] font-bold hover:underline">
+                      {phone}
+                    </a>
+                  ))}
+                </div>
               </div>
 
               <div className="flex items-center gap-2.5">
@@ -142,10 +163,11 @@ export default function Footer({ onOpenBooking, onOpenDoshaQuiz }) {
               </div>
             </div>
 
-            {/* Quick CTAs */}
-            <div className="flex items-center gap-2 flex-wrap">
-              <a 
-                href={`https://wa.me/${clinicInfo.whatsappNumber}?text=${encodeURIComponent('Namaste Ayush Ayurveda, I would like to inquire about treatments at your Kompally clinic.')}`}
+            {/* Quick CTAs and Socials */}
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-2 flex-wrap">
+                <a 
+                  href={`https://wa.me/${clinicInfo.whatsappNumber}?text=${encodeURIComponent('Namaste Ayush Ayurveda, I would like to inquire about treatments at your Kompally clinic.')}`}
                 target="_blank" 
                 rel="noreferrer"
                 className="bg-[#25D366] hover:bg-[#20ba59] text-white px-3.5 py-2 rounded-full text-xs font-bold inline-flex items-center gap-1.5 transition-colors"
@@ -154,13 +176,29 @@ export default function Footer({ onOpenBooking, onOpenDoshaQuiz }) {
                 <span>WhatsApp Us</span>
               </a>
 
-              <button 
-                onClick={onOpenDoshaQuiz}
-                className="bg-[#c59d5f]/20 hover:bg-[#c59d5f]/30 border border-[#c59d5f]/50 text-[#ffd700] px-3.5 py-2 rounded-full text-xs font-bold inline-flex items-center gap-1.5 transition-colors"
-              >
-                <Sparkles size={14} />
-                <span>Dosha Test</span>
-              </button>
+                <button 
+                  onClick={onOpenDoshaQuiz}
+                  className="bg-[#c59d5f]/20 hover:bg-[#c59d5f]/30 border border-[#c59d5f]/50 text-[#ffd700] px-3.5 py-2 rounded-full text-xs font-bold inline-flex items-center gap-1.5 transition-colors"
+                >
+                  <Sparkles size={14} />
+                  <span>Dosha Test</span>
+                </button>
+              </div>
+
+              {/* Social Media Icons */}
+              <div className="flex items-center gap-3">
+                <a href={clinicInfo.socials.instagram} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-[#c59d5f]/10 border border-[#c59d5f]/30 flex items-center justify-center text-[#c59d5f] hover:bg-[#c59d5f] hover:text-[#0b2813] transition-all" aria-label="Instagram">
+                  <InstagramIcon size={15} />
+                </a>
+                <a href={clinicInfo.socials.youtube} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-[#c59d5f]/10 border border-[#c59d5f]/30 flex items-center justify-center text-[#c59d5f] hover:bg-[#c59d5f] hover:text-[#0b2813] transition-all" aria-label="YouTube">
+                  <YoutubeIcon size={15} />
+                </a>
+                {clinicInfo.socials.whatsappChannel && (
+                  <a href={clinicInfo.socials.whatsappChannel} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-[#c59d5f]/10 border border-[#c59d5f]/30 flex items-center justify-center text-[#c59d5f] hover:bg-[#c59d5f] hover:text-[#0b2813] transition-all" aria-label="WhatsApp Channel">
+                    <WhatsappIcon size={15} />
+                  </a>
+                )}
+              </div>
             </div>
 
           </div>
@@ -178,7 +216,6 @@ export default function Footer({ onOpenBooking, onOpenDoshaQuiz }) {
             <Link to="/about" className="hover:text-[#ffd700] transition-colors">About Us</Link>
             <Link to="/therapies" className="hover:text-[#ffd700] transition-colors">Therapies</Link>
             <Link to="/clays" className="hover:text-[#ffd700] transition-colors">Moroccan Clays</Link>
-            <Link to="/pricing" className="hover:text-[#ffd700] transition-colors">Pricing</Link>
             <Link to="/gallery" className="hover:text-[#ffd700] transition-colors">Gallery</Link>
             <Link to="/testimonials" className="hover:text-[#ffd700] transition-colors">Testimonials</Link>
             <Link to="/blog" className="hover:text-[#ffd700] transition-colors">Blog</Link>

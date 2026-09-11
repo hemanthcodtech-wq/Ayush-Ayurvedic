@@ -20,6 +20,27 @@ import {
   MessageSquare,
   ArrowRight
 } from 'lucide-react';
+
+const InstagramIcon = ({ size = 24, className = "" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+);
+
+const YoutubeIcon = ({ size = 24, className = "" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path>
+    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+  </svg>
+);
+
+const WhatsappIcon = ({ size = 24, className = "" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+  </svg>
+);
 import { clinicInfo, therapyCategories, therapies, clayTherapies } from '../data/ayurvedaData';
 
 export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
@@ -66,10 +87,9 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
   }, []);
 
   const categorizedTherapies = {
-    massages: therapies.filter(t => t.category === 'massages').slice(0, 4),
-    kizhi: therapies.filter(t => t.category === 'kizhi').slice(0, 4),
-    dhara: therapies.filter(t => t.category === 'dhara').slice(0, 4),
-    vasti: therapies.filter(t => t.category === 'vasti').slice(0, 4),
+    relax: therapies.filter(t => t.category === 'relax').slice(0, 6),
+    rejuvenate: therapies.filter(t => t.category === 'rejuvenate').slice(0, 6),
+    treatments: therapies.filter(t => t.category === 'treatments').slice(0, 6)
   };
 
   const navLinkClass = ({ isActive }) => 
@@ -100,6 +120,21 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
 
           {/* Right Info: Dosha Quiz & Direct Phone */}
           <div className="flex items-center justify-center gap-3 sm:gap-4 w-full md:w-auto">
+            {/* Social Icons */}
+            <div className="flex items-center gap-3 mr-1 sm:mr-3 border-r border-[#c59d5f]/30 pr-2 sm:pr-4">
+              <a href={clinicInfo.socials.instagram} target="_blank" rel="noopener noreferrer" className="text-[#e8dec8] hover:text-[#c59d5f] transition-colors" aria-label="Instagram">
+                <InstagramIcon size={14} />
+              </a>
+              <a href={clinicInfo.socials.youtube} target="_blank" rel="noopener noreferrer" className="text-[#e8dec8] hover:text-[#c59d5f] transition-colors" aria-label="YouTube">
+                <YoutubeIcon size={15} />
+              </a>
+              {clinicInfo.socials.whatsappChannel && (
+                <a href={clinicInfo.socials.whatsappChannel} target="_blank" rel="noopener noreferrer" className="text-[#e8dec8] hover:text-[#c59d5f] transition-colors" aria-label="WhatsApp Channel">
+                  <WhatsappIcon size={14} />
+                </a>
+              )}
+            </div>
+
             <button 
               onClick={onOpenDoshaQuiz}
               className="inline-flex items-center gap-1.5 bg-[#c59d5f]/20 hover:bg-[#c59d5f]/30 text-[#f7e7ce] px-3 py-1 rounded-full border border-[#c59d5f]/40 transition-colors font-medium text-[11px] whitespace-nowrap"
@@ -136,11 +171,13 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
             className="flex items-center gap-2 sm:gap-3 group shrink min-w-0 text-decoration-none mr-2"
           >
             <div className="relative shrink-0">
-              <img 
-                src="/images/logo.jpg" 
-                alt="Ayush Ayurveda Logo" 
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-[#c59d5f] object-cover shadow-sm transition-transform duration-300 group-hover:scale-105"
-              />
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-[#c59d5f] shadow-sm overflow-hidden bg-white transition-transform duration-300 group-hover:scale-105">
+                <img 
+                  src="/images/logo.jpg" 
+                  alt="Ayush Ayurveda Logo" 
+                  className="w-full h-full object-cover scale-[1.08] object-center"
+                />
+              </div>
               <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#0b351a] rounded-full border border-[#c59d5f] flex items-center justify-center text-[8px] text-[#ffd700]">
                 ✦
               </span>
@@ -195,17 +232,18 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
               {therapiesDropdownOpen && (
                 <div className="absolute top-full -left-48 w-[780px] bg-white rounded-2xl border border-[#e8dec8] shadow-2xl p-6 grid grid-cols-4 gap-5 z-50 animate-fadeIn">
                   
-                  {/* Col 1: Massages */}
+                  {/* Col 1: Relax */}
                   <div>
                     <div className="flex items-center gap-1.5 text-xs font-bold text-[#0b351a] pb-2 mb-2 border-b border-stone-100">
                       <Activity size={14} className="text-[#c59d5f]" />
-                      <span>Body Massages</span>
+                      <span>Relax</span>
                     </div>
                     <ul className="space-y-1.5">
-                      {categorizedTherapies.massages.map(t => (
+                      {categorizedTherapies.relax.map(t => (
                         <li key={t.id}>
                           <Link 
-                            to="/therapies" 
+                            to={`/therapies/${t.id}`}
+                            onClick={() => setTherapiesDropdownOpen(false)}
                             className="text-[12.5px] text-stone-600 hover:text-[#0b351a] hover:font-medium block py-0.5 transition-colors line-clamp-1"
                           >
                             {t.name}
@@ -215,17 +253,18 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
                     </ul>
                   </div>
 
-                  {/* Col 2: Kizhi */}
+                  {/* Col 2: Rejuvenate */}
                   <div>
                     <div className="flex items-center gap-1.5 text-xs font-bold text-[#0b351a] pb-2 mb-2 border-b border-stone-100">
                       <Flame size={14} className="text-[#c59d5f]" />
-                      <span>Kizhi (Potli)</span>
+                      <span>Rejuvenate</span>
                     </div>
                     <ul className="space-y-1.5">
-                      {categorizedTherapies.kizhi.map(t => (
+                      {categorizedTherapies.rejuvenate.map(t => (
                         <li key={t.id}>
                           <Link 
-                            to="/therapies" 
+                            to={`/therapies/${t.id}`}
+                            onClick={() => setTherapiesDropdownOpen(false)}
                             className="text-[12.5px] text-stone-600 hover:text-[#0b351a] hover:font-medium block py-0.5 transition-colors line-clamp-1"
                           >
                             {t.name}
@@ -235,17 +274,18 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
                     </ul>
                   </div>
 
-                  {/* Col 3: Dhara & Vasti */}
+                  {/* Col 3: Treatments */}
                   <div>
                     <div className="flex items-center gap-1.5 text-xs font-bold text-[#0b351a] pb-2 mb-2 border-b border-stone-100">
                       <Droplets size={14} className="text-[#c59d5f]" />
-                      <span>Dhara &amp; Vasti</span>
+                      <span>Treatments</span>
                     </div>
                     <ul className="space-y-1.5">
-                      {categorizedTherapies.dhara.slice(0, 2).concat(categorizedTherapies.vasti.slice(0, 2)).map(t => (
+                      {categorizedTherapies.treatments.map(t => (
                         <li key={t.id}>
                           <Link 
-                            to="/therapies" 
+                            to={`/therapies/${t.id}`}
+                            onClick={() => setTherapiesDropdownOpen(false)}
                             className="text-[12.5px] text-stone-600 hover:text-[#0b351a] hover:font-medium block py-0.5 transition-colors line-clamp-1"
                           >
                             {t.name}
@@ -293,9 +333,7 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
               </span>
             </NavLink>
 
-            <NavLink to="/pricing" className={navLinkClass}>
-              Pricing
-            </NavLink>
+
 
             <NavLink to="/gallery" className={navLinkClass}>
               Gallery
@@ -354,7 +392,7 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
           <div className="flex items-center gap-3">
             
             <button 
-              onClick={() => onOpenBooking ? onOpenBooking() : navigate('/book-appointment')}
+              onClick={() => navigate('/book-appointment')}
               className="btn-primary !px-3 !py-1.5 sm:!py-2.5 sm:!px-5 rounded-full text-[11px] sm:text-[13px] font-semibold flex items-center gap-1 sm:gap-2 shadow-md hover:shadow-lg transition-all duration-300 shrink-0"
             >
               <Calendar size={13} className="sm:w-[15px] sm:h-[15px] shrink-0" />
@@ -450,13 +488,6 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
                 </span>
               </NavLink>
 
-              <NavLink 
-                to="/pricing" 
-                onClick={() => setMobileMenuOpen(false)}
-                className={({ isActive }) => `block px-3 py-2.5 rounded-lg text-sm font-semibold transition-colors ${isActive ? 'bg-[#0b351a]/10 text-[#0b351a]' : 'text-stone-700 hover:bg-stone-100'}`}
-              >
-                Pricing Chart
-              </NavLink>
 
               <NavLink 
                 to="/gallery" 

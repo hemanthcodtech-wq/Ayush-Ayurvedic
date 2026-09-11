@@ -17,6 +17,7 @@ import { clayTherapies, clinicInfo } from '../data/ayurvedaData';
 
 export default function ClayTherapiesSection({ onOpenBooking, setActivePage, isStandalone = false }) {
   const [selectedClayId, setSelectedClayId] = useState(clayTherapies[0].id);
+  const [showAllClays, setShowAllClays] = useState(false);
 
   const currentClay = clayTherapies.find(c => c.id === selectedClayId) || clayTherapies[0];
 
@@ -57,57 +58,66 @@ export default function ClayTherapiesSection({ onOpenBooking, setActivePage, isS
 
         {/* Interactive Dropdown & Pill Selector Bar */}
         <div className="bg-stone-900/90 border border-amber-500/20 rounded-2xl p-4 md:p-6 mb-12 shadow-2xl backdrop-blur-md max-w-4xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col gap-4">
             
             {/* Dropdown Label & Control */}
-            <div className="w-full md:w-auto flex items-center gap-3">
-              <span className="text-xs uppercase tracking-wider font-semibold text-gold whitespace-nowrap flex items-center gap-1.5">
-                <Layers size={15} />
-                Select Pure Clay:
-              </span>
-              <div className="relative w-full md:w-72">
-                <select
-                  value={selectedClayId}
-                  onChange={handleClaySelect}
-                  className="w-full appearance-none bg-stone-800 border border-amber-500/30 text-stone-100 py-3 pl-4 pr-10 rounded-xl font-serif text-base focus:outline-none focus:border-amber-400 cursor-pointer shadow-inner transition-all hover:bg-stone-800/80"
-                >
-                  {clayTherapies.map((clay) => (
-                    <option key={clay.id} value={clay.id} className="bg-stone-900 text-stone-100 py-2">
-                      {clay.number}) {clay.name} - {clay.badge}
-                    </option>
-                  ))}
-                </select>
-                <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-gold">
-                  <ChevronDown size={18} />
+            <div className="w-full flex items-center justify-between gap-4">
+              <div className="w-full md:w-auto flex flex-col md:flex-row items-start md:items-center gap-3 flex-1">
+                <span className="text-xs uppercase tracking-wider font-semibold text-gold whitespace-nowrap flex items-center gap-1.5">
+                  <Layers size={15} />
+                  Select Pure Clay:
+                </span>
+                <div className="relative w-full md:max-w-md">
+                  <select
+                    value={selectedClayId}
+                    onChange={handleClaySelect}
+                    className="w-full appearance-none bg-stone-800 border border-amber-500/30 text-stone-100 py-3 pl-4 pr-10 rounded-xl font-serif text-base focus:outline-none focus:border-amber-400 cursor-pointer shadow-inner transition-all hover:bg-stone-800/80"
+                  >
+                    {clayTherapies.map((clay) => (
+                      <option key={clay.id} value={clay.id} className="bg-stone-900 text-stone-100 py-2">
+                        {clay.number}) {clay.name} - {clay.badge}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-gold">
+                    <ChevronDown size={18} />
+                  </div>
                 </div>
               </div>
+              <button
+                onClick={() => setShowAllClays(!showAllClays)}
+                className="hidden lg:block px-5 py-2.5 rounded-xl text-sm font-bold text-amber-500 hover:text-amber-400 hover:bg-stone-800 bg-stone-900 border border-amber-500/20 transition-all whitespace-nowrap"
+              >
+                {showAllClays ? 'Hide All' : 'View All'}
+              </button>
             </div>
 
             {/* Quick Pill Switchers (Desktop & Tablet) */}
-            <div className="hidden lg:flex items-center gap-2 flex-wrap justify-end">
-              {clayTherapies.map((clay) => {
-                const isActive = clay.id === selectedClayId;
-                return (
-                  <button
-                    key={clay.id}
-                    onClick={() => setSelectedClayId(clay.id)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-300 ${
-                      isActive 
-                        ? 'bg-amber-500/20 text-gold border border-amber-500/40 shadow-sm' 
-                        : 'bg-stone-800/50 text-stone-400 border border-stone-800 hover:text-stone-200 hover:bg-stone-800'
-                    }`}
-                  >
-                    {clay.number}. {clay.name}
-                  </button>
-                );
-              })}
-            </div>
-
+            {showAllClays && (
+              <div className="hidden lg:flex items-center gap-2 flex-wrap mt-3 pt-4 border-t border-stone-800">
+                {clayTherapies.map((clay) => {
+                  const isActive = clay.id === selectedClayId;
+                  return (
+                    <button
+                      key={clay.id}
+                      onClick={() => setSelectedClayId(clay.id)}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-300 ${
+                        isActive 
+                          ? 'bg-amber-500/20 text-gold border border-amber-500/40 shadow-sm' 
+                          : 'bg-stone-800/50 text-stone-400 border border-stone-800 hover:text-stone-200 hover:bg-stone-800'
+                      }`}
+                    >
+                      {clay.number}. {clay.name}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </div>
 
         {/* Active Clay Showcase Card */}
-        <div className="bg-gradient-to-br from-stone-900 via-stone-900/95 to-stone-950 border border-amber-500/25 rounded-3xl overflow-hidden shadow-2xl mb-16">
+        <div id="clay-showcase" className="scroll-mt-24 bg-gradient-to-br from-stone-900 via-stone-900/95 to-stone-950 border border-amber-500/25 rounded-3xl overflow-hidden shadow-2xl mb-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
             
             {/* Left: High-Res Visual Display */}
@@ -124,10 +134,7 @@ export default function ClayTherapiesSection({ onOpenBooking, setActivePage, isS
                 <span className="px-3.5 py-1.5 rounded-full bg-stone-950/80 backdrop-blur-md border border-amber-500/40 text-amber-300 text-xs font-semibold tracking-wide shadow-lg">
                   Clay #{currentClay.number} • {currentClay.badge}
                 </span>
-                
-                <span className="px-3.5 py-1.5 rounded-full bg-amber-500 text-stone-950 text-xs font-bold shadow-lg">
-                  {currentClay.priceFormatted}
-                </span>
+
               </div>
 
               {/* Bottom Visual Caption */}
@@ -247,12 +254,12 @@ export default function ClayTherapiesSection({ onOpenBooking, setActivePage, isS
                   className="w-full sm:w-auto flex-1 btn-primary py-3.5 px-6 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-amber-500/20"
                 >
                   <Calendar size={17} />
-                  Book {currentClay.name} ({currentClay.priceFormatted})
+                  Book {currentClay.name}
                 </button>
 
                 <a
                   href={`https://wa.me/${clinicInfo.whatsappNumber}?text=${encodeURIComponent(
-                    `Namaste Ayush Ayurveda, I would like to inquire about booking the ${currentClay.fullName} (${currentClay.priceFormatted}) at your Kompally clinic.`
+                    `Namaste Ayush Ayurveda, I would like to inquire about booking the ${currentClay.fullName} at your Kompally clinic.`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -308,9 +315,7 @@ export default function ClayTherapiesSection({ onOpenBooking, setActivePage, isS
                       <span className="absolute top-2 left-2 px-2 py-0.5 rounded-md bg-stone-950/80 backdrop-blur-md text-[10px] font-bold text-amber-300 border border-amber-500/30">
                         #{clay.number}
                       </span>
-                      <span className="absolute bottom-2 right-2 px-2 py-0.5 rounded-md bg-amber-500 text-[10px] font-bold text-stone-950 shadow">
-                        {clay.priceFormatted}
-                      </span>
+
                     </div>
 
                     <h4 className="text-sm font-serif font-bold text-stone-100 group-hover:text-gold transition-colors line-clamp-1">

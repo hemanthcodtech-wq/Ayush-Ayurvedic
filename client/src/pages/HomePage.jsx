@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { 
   Sparkles, 
   Calendar, 
@@ -17,12 +18,16 @@ import {
   Droplets,
   Flame,
   Zap,
-  PhoneCall
+  PhoneCall,
+  ShieldPlus,
+  HeartPulse
 } from 'lucide-react';
 import { clinicInfo, panchakarmaPillars, therapies, testimonials, blogPosts, galleryPhotos } from '../data/ayurvedaData';
 import ClayTherapiesSection from '../components/ClayTherapiesSection';
+import SEO from '../components/SEO';
 
 export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy, onOpenDoshaQuiz }) {
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
   const [animatedWordIndex, setAnimatedWordIndex] = useState(0);
@@ -69,7 +74,11 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
   const featuredTherapies = therapies.filter(t => t.featured).slice(0, 6);
 
   return (
-    <div className="home-page animate-fade-in">
+    <div className="home-page overflow-hidden">
+      <SEO 
+        title="Home" 
+        description="Ayush Ayurveda Panchakaranam offers authentic Kerala Ayurveda & 35+ holistic therapies in Kompally, Hyderabad. Relieve pain and rejuvenate naturally."
+      />
       
       {/* 1. HERO SLIDER SECTION */}
       <section className="relative h-[85vh] min-h-[500px] md:h-[640px] overflow-hidden bg-[#0b351a]">
@@ -247,29 +256,18 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
               
               {/* Floating Badge Card */}
               <div 
-                style={{
-                  position: 'absolute',
-                  bottom: '-25px',
-                  right: '-15px',
-                  backgroundColor: '#ffffff',
-                  borderRadius: 'var(--radius-md)',
-                  padding: '16px 22px',
-                  boxShadow: 'var(--shadow-md)',
-                  border: '2px solid var(--color-gold)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '14px',
-                  maxWidth: '260px'
-                }}
+                className="absolute -bottom-6 left-1/2 -translate-x-1/2 sm:left-auto sm:transform-none sm:right-[-15px] bg-white rounded-xl p-3 sm:p-4 shadow-lg border-2 border-[#c59d5f] flex items-center gap-3 sm:gap-3 w-11/12 sm:w-auto max-w-[260px] z-10"
               >
-                <img 
-                  src="/images/logo.jpg" 
-                  alt="Ayush Logo Badge" 
-                  style={{ width: '50px', height: '50px', borderRadius: '50%' }}
-                />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-full overflow-hidden border border-[#c59d5f]/50 bg-white">
+                  <img 
+                    src="/images/logo.jpg" 
+                    alt="Ayush Logo Badge" 
+                    className="w-full h-full object-cover scale-[1.08] object-center"
+                  />
+                </div>
                 <div>
-                  <div style={{ fontWeight: '700', color: 'var(--color-primary-dark)', fontSize: '0.92rem' }}>Panchakarma Center</div>
-                  <div style={{ fontSize: '0.78rem', color: '#666' }}>Kompally • Hyderabad</div>
+                  <div className="font-bold text-[#0b351a] text-sm sm:text-[0.92rem]">Panchakarma Center</div>
+                  <div className="text-xs sm:text-[0.78rem] text-[#666]">Kompally • Hyderabad</div>
                 </div>
               </div>
             </div>
@@ -339,6 +337,34 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
         </div>
       </section>
 
+      {/* 3.5 DOCTOR CONSULTATION HIGHLIGHT */}
+      <section className="bg-[#0b2813] border-y-4 border-[#c59d5f] py-12 md:py-16">
+        <div className="container">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-white/5 p-8 md:p-12 rounded-2xl border border-white/10 shadow-2xl">
+            <div className="flex-1">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#c59d5f]/20 border border-[#c59d5f]/50 rounded-full text-[#ffd700] text-xs font-bold uppercase tracking-wider mb-4">
+                <Sparkles size={14} /> Expert Diagnosis
+              </div>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-4 leading-tight">
+                Ayurvedic Vaidya Consultation & Nadi Pariksha
+              </h2>
+              <p className="text-[#c2d1c6] text-lg max-w-2xl leading-relaxed mb-0">
+                True healing begins with accurate diagnosis. Our certified Kerala Vaidyas use classical Nadi Pariksha (Pulse Diagnosis) to uncover the root cause of your ailments and prescribe personalized treatments, diet, and lifestyle adjustments.
+              </p>
+            </div>
+            <div className="shrink-0 w-full md:w-auto">
+              <button 
+                onClick={() => navigate('/book-appointment')}
+                className="w-full md:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-[#ffd700] to-[#c59d5f] text-[#0b2813] px-8 py-4 rounded-xl font-bold text-[15px] shadow-[0_0_20px_rgba(197,157,95,0.4)] hover:scale-105 transition-transform"
+              >
+                <Calendar size={18} />
+                <span>Book a Consultation</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 4. CLASSICAL 5 PANCHAKARMA PILLARS SECTION */}
       <section className="py-12 md:py-20 bg-white border-y border-[#e8dec8]">
         <div className="container">
@@ -355,7 +381,17 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px' }}>
-            {panchakarmaPillars.map((pillar) => (
+            {panchakarmaPillars.map((pillar) => {
+              const IconMap = {
+                "droplets": Droplets,
+                "flame": Flame,
+                "shield-plus": ShieldPlus,
+                "sparkles": Sparkles,
+                "heart-pulse": HeartPulse
+              };
+              const IconComponent = IconMap[pillar.icon] || Sparkles;
+              
+              return (
               <div 
                 key={pillar.id}
                 style={{
@@ -390,7 +426,7 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
                   margin: '0 auto 14px',
                   border: '2px solid var(--color-gold)'
                 }}>
-                  <Sparkles size={24} color="#ffd700" />
+                  <IconComponent size={24} color="#ffd700" />
                 </div>
 
                 <div style={{ fontSize: '0.8rem', color: 'var(--color-gold-dark)', fontWeight: '700' }}>
@@ -418,7 +454,8 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
                 </div>
 
               </div>
-            ))}
+              );
+            })}
           </div>
 
         </div>
@@ -485,20 +522,7 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
                   }}>
                     {therapy.categoryName}
                   </div>
-                  <div style={{
-                    position: 'absolute',
-                    bottom: '12px',
-                    right: '12px',
-                    backgroundColor: '#ffffff',
-                    color: 'var(--color-primary)',
-                    fontWeight: '700',
-                    fontSize: '0.95rem',
-                    padding: '4px 14px',
-                    borderRadius: 'var(--radius-full)',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
-                  }}>
-                    {therapy.priceFormatted}
-                  </div>
+
                 </div>
 
                 {/* Body Content */}
@@ -517,13 +541,13 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
                   </p>
 
                   <div style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
-                    <button 
-                      onClick={() => onSelectTherapy(therapy)}
-                      className="btn-outline"
-                      style={{ padding: '8px 16px', fontSize: '0.85rem', flex: 1 }}
+                    <Link 
+                      to={`/therapies/${therapy.id}`}
+                      className="btn-outline text-center flex items-center justify-center"
+                      style={{ padding: '8px 16px', fontSize: '0.85rem', flex: 1, textDecoration: 'none' }}
                     >
                       Read Details
-                    </button>
+                    </Link>
                     <button 
                       onClick={() => onOpenBooking(therapy.id)}
                       className="btn-primary"
@@ -548,7 +572,7 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
               className="btn-gold"
               style={{ padding: '14px 36px', fontSize: '1rem' }}
             >
-              <span>View All 30+ Therapies &amp; Rates</span>
+              <span>View All 30+ Therapies</span>
               <ArrowRight size={18} />
             </button>
           </div>

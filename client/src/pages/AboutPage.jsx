@@ -89,8 +89,41 @@ export default function AboutPage({ setActivePage, onOpenBooking, onOpenDoshaQui
         </div>
       </section>
 
-      {/* The 5 Panchakarma Pillars Detailed */}
+      {/* Managing Director Message */}
       <section className="py-12 md:py-20 bg-white border-y border-[#e8dec8]">
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '50px', alignItems: 'center' }}>
+            
+            <div style={{ position: 'relative' }}>
+              <div style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', border: '4px solid #ffffff' }}>
+                <img 
+                  src="/images/md-pic.jpg" 
+                  alt="Managing Director - Ayush Ayurveda Panchakaranam" 
+                  style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
+                />
+              </div>
+            </div>
+
+            <div>
+              <span className="section-badge">Leadership</span>
+              <h2 style={{ fontSize: '2.2rem', marginBottom: '16px', color: 'var(--color-primary-dark)' }}>
+                Message from our Managing Director
+              </h2>
+              
+              <p style={{ fontSize: '0.98rem', color: '#444', lineHeight: '1.7', marginBottom: '16px' }}>
+                At our center, we believe Ayurveda is more than treating disease—it's a path to complete physical, mental, and emotional well-being. With over 10 years of experience in Ayurvedic Panchakarma therapies, I have had the privilege of helping many people restore their health through authentic Ayurvedic treatments. We focus on understanding each person's unique constitution and addressing the root cause, not just the symptoms.
+              </p>
+
+              <p style={{ fontSize: '0.95rem', color: '#666', lineHeight: '1.65' }}>
+                We are committed to providing personalized Panchakarma therapies, Ayurvedic treatments, lifestyle guidance, and dietary recommendations based on classical Ayurvedic principles, while maintaining the highest standards of hygiene, safety, and patient care. Our mission is to promote natural healing and empower every individual to enjoy a healthier, happier, and more balanced life. Healing naturally. Living completely.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The 5 Panchakarma Pillars Detailed */}
+      <section className="py-12 md:py-20 bg-[#fbf9f5]">
         <div className="container">
           
           <div className="section-title-wrap">

@@ -12,6 +12,7 @@ import {
   MapPin
 } from 'lucide-react';
 import { clinicInfo, therapies } from '../data/ayurvedaData';
+import SEO from '../components/SEO';
 
 export default function BookAppointmentPage() {
   const [selectedTherapy, setSelectedTherapy] = useState('doctor-consultation');
@@ -25,6 +26,7 @@ export default function BookAppointmentPage() {
   const [email, setEmail] = useState('');
   const [notes, setNotes] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [bookingId, setBookingId] = useState('');
 
   const timeSlots = [
@@ -32,22 +34,51 @@ export default function BookAppointmentPage() {
     '02:30 PM', '03:30 PM', '04:30 PM', '05:30 PM', '06:30 PM', '07:00 PM'
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!fullName || !phone) {
       alert('Please fill out your name and phone number.');
       return;
     }
+    
+    setIsLoading(true);
     const id = 'AYUSH-' + Math.floor(100000 + Math.random() * 900000);
-    setBookingId(id);
-    setIsSubmitted(true);
-    window.scrollTo({ top: 200, behavior: 'smooth' });
+    
+    try {
+      const response = await fetch('http://localhost:5000/api/book-appointment', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          bookingId: id,
+          fullName,
+          phone,
+          email,
+          selectedTherapyName: getTherapyName(),
+          selectedDate,
+          selectedTime,
+          notes
+        })
+      });
+
+      if (response.ok) {
+        setBookingId(id);
+        setIsSubmitted(true);
+        window.scrollTo({ top: 200, behavior: 'smooth' });
+      } else {
+        alert('Failed to submit appointment. Please try again or contact us via WhatsApp.');
+      }
+    } catch (error) {
+      console.error('Error submitting booking:', error);
+      alert('Error connecting to server. Please try again later.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const getTherapyName = () => {
     if (selectedTherapy === 'doctor-consultation') return 'Ayurvedic Vaidya Pulse Examination & Diagnosis (Nadi Pariksha)';
     const found = therapies.find(t => t.id === selectedTherapy || t.name === selectedTherapy);
-    return found ? `${found.name} (${found.duration} - ${found.priceFormatted})` : selectedTherapy;
+    return found ? `${found.name} (${found.duration})` : selectedTherapy;
   };
 
   const handleWhatsAppSend = () => {
@@ -64,6 +95,10 @@ export default function BookAppointmentPage() {
 
   return (
     <div className="book-appointment-page animate-fade-in">
+      <SEO 
+        title="Book Appointment" 
+        description="Book your authentic Kerala Ayurvedic session at Ayush Ayurveda Panchakaranam in Kompally, Hyderabad. Schedule your consultation online." 
+      />
       
       {/* Page Header */}
       <section style={{ backgroundColor: 'var(--color-primary-dark)', color: '#ffffff', padding: '60px 0 50px', textAlign: 'center', borderBottom: '3px solid var(--color-gold)' }}>
@@ -177,29 +212,19 @@ export default function BookAppointmentPage() {
                     required
                   >
                     <option value="doctor-consultation">🌿 Ayurvedic Vaidya Consultation &amp; Nadi Pariksha (Pulse Examination)</option>
-                    <optgroup label="Body Massages & Rejuvenation">
-                      {therapies.filter(t => t.category === 'massages').map(t => (
-                        <option key={t.id} value={t.id}>{t.name} ({t.duration} - {t.priceFormatted})</option>
+                    <optgroup label="Relax">
+                      {therapies.filter(t => t.category === 'relax').map(t => (
+                        <option key={t.id} value={t.id}>{t.name} ({t.duration})</option>
                       ))}
                     </optgroup>
-                    <optgroup label="Kizhi (Potli) Therapies">
-                      {therapies.filter(t => t.category === 'kizhi').map(t => (
-                        <option key={t.id} value={t.id}>{t.name} ({t.duration} - {t.priceFormatted})</option>
+                    <optgroup label="Rejuvenate">
+                      {therapies.filter(t => t.category === 'rejuvenate').map(t => (
+                        <option key={t.id} value={t.id}>{t.name} ({t.duration})</option>
                       ))}
                     </optgroup>
-                    <optgroup label="Dhara & Oil Baths">
-                      {therapies.filter(t => t.category === 'dhara').map(t => (
-                        <option key={t.id} value={t.id}>{t.name} ({t.duration} - {t.priceFormatted})</option>
-                      ))}
-                    </optgroup>
-                    <optgroup label="Vasti Therapies (Spine & Joint Care)">
-                      {therapies.filter(t => t.category === 'vasti').map(t => (
-                        <option key={t.id} value={t.id}>{t.name} ({t.duration} - {t.priceFormatted})</option>
-                      ))}
-                    </optgroup>
-                    <optgroup label="Ayur Care & Specialized Treatments">
-                      {therapies.filter(t => t.category === 'ayur-care' || t.category === 'facials').map(t => (
-                        <option key={t.id} value={t.id}>{t.name} ({t.duration} - {t.priceFormatted})</option>
+                    <optgroup label="Treatments">
+                      {therapies.filter(t => t.category === 'treatments').map(t => (
+                        <option key={t.id} value={t.id}>{t.name} ({t.duration})</option>
                       ))}
                     </optgroup>
                   </select>
@@ -283,11 +308,12 @@ export default function BookAppointmentPage() {
 
                 <button 
                   type="submit" 
+                  disabled={isLoading}
                   className="btn-primary" 
                   style={{ width: '100%', padding: '16px', fontSize: '1.05rem', marginTop: '10px' }}
                 >
                   <Calendar size={18} />
-                  <span>Confirm and Schedule My Appointment</span>
+                  <span>{isLoading ? 'Processing Request...' : 'Confirm and Schedule My Appointment'}</span>
                 </button>
 
                 <div style={{ textAlign: 'center', marginTop: '14px', fontSize: '0.82rem', color: '#777' }}>
