@@ -83,36 +83,36 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
     <header className="sticky top-0 z-50 w-full font-sans transition-all duration-300">
       
       {/* 1. TOP INFORMATION & EMERGENCY HOTLINE BAR */}
-      <div className="bg-[#0b351a] text-[#e8dec8] text-[12px] py-1.5 px-4 border-b border-[#c59d5f]/20">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div className="bg-[#0b351a] text-[#e8dec8] text-[12px] py-2 px-3 sm:px-4 border-b border-[#c59d5f]/20">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center md:justify-between gap-2 md:gap-4">
           
           {/* Left Info: Timings & Location */}
-          <div className="flex items-center gap-4 text-xs font-normal">
-            <span className="hidden sm:flex items-center gap-1.5">
-              <Clock size={13} className="text-[#c59d5f]" />
+          <div className="flex items-center justify-center gap-3 sm:gap-6 text-xs font-normal w-full md:w-auto flex-wrap">
+            <span className="flex items-center gap-1.5 whitespace-nowrap">
+              <Clock size={13} className="text-[#c59d5f] shrink-0" />
               <span>{clinicInfo.timings}</span>
             </span>
-            <span className="flex items-center gap-1.5 truncate max-w-[260px] md:max-w-none">
+            <span className="hidden sm:flex items-center gap-1.5 truncate">
               <MapPin size={13} className="text-[#c59d5f] shrink-0" />
-              <span className="truncate">Raichandani 5 Star Complex, Kompally, Hyderabad</span>
+              <span className="truncate">Raichandani 5 Star Complex, Kompally</span>
             </span>
           </div>
 
           {/* Right Info: Dosha Quiz & Direct Phone */}
-          <div className="flex items-center gap-3 ml-auto text-xs mt-1 sm:mt-0">
+          <div className="flex items-center justify-center gap-3 sm:gap-4 w-full md:w-auto">
             <button 
               onClick={onOpenDoshaQuiz}
-              className="hidden sm:inline-flex items-center gap-1.5 bg-[#c59d5f]/20 hover:bg-[#c59d5f]/30 text-[#f7e7ce] px-3 py-1 rounded-full border border-[#c59d5f]/40 transition-colors font-medium text-[11px]"
+              className="inline-flex items-center gap-1.5 bg-[#c59d5f]/20 hover:bg-[#c59d5f]/30 text-[#f7e7ce] px-3 py-1 rounded-full border border-[#c59d5f]/40 transition-colors font-medium text-[11px] whitespace-nowrap"
             >
-              <Sparkles size={12} className="text-[#ffd700]" />
+              <Sparkles size={12} className="text-[#ffd700] shrink-0" />
               <span>Prakriti Quiz</span>
             </button>
 
             <a 
               href={`tel:${clinicInfo.phoneRaw}`} 
-              className="inline-flex items-center gap-1.5 font-bold text-[#ffd700] hover:text-white transition-colors bg-[#082813] sm:bg-transparent px-2 sm:px-0 py-0.5 rounded sm:rounded-none"
+              className="inline-flex items-center gap-1.5 font-bold text-[#ffd700] hover:text-white transition-colors bg-[#082813] md:bg-transparent px-3 md:px-0 py-1 md:py-0 rounded-full md:rounded-none whitespace-nowrap"
             >
-              <Phone size={13} className="animate-pulse text-[#ffd700]" />
+              <Phone size={13} className="animate-pulse text-[#ffd700] shrink-0" />
               <span>{clinicInfo.phones[0]}</span>
             </a>
           </div>
@@ -133,7 +133,7 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
           {/* Brand Logo & Taglines */}
           <Link 
             to="/" 
-            className="flex items-center gap-2 sm:gap-3 group shrink min-w-0 text-decoration-none"
+            className="flex items-center gap-2 sm:gap-3 group shrink min-w-0 text-decoration-none mr-2"
           >
             <div className="relative shrink-0">
               <img 
@@ -146,14 +146,14 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
               </span>
             </div>
 
-            <div className="flex flex-col">
-              <span className="font-serif font-bold text-sm sm:text-lg leading-tight text-[#0b351a] tracking-wide group-hover:text-[#062411] transition-colors truncate">
+            <div className="flex flex-col min-w-0">
+              <span className="font-serif font-bold text-[13px] sm:text-lg leading-tight text-[#0b351a] tracking-wide group-hover:text-[#062411] transition-colors truncate">
                 AYUSH AYURVEDA
               </span>
               <span className="text-[8px] sm:text-[10px] font-bold text-[#a67c38] tracking-[1.5px] uppercase truncate">
                 Panchakaranam • Kompally
               </span>
-              <span className="text-[7px] sm:text-[9.5px] text-[#666] italic leading-none hidden xs:block truncate">
+              <span className="text-[8px] sm:text-[9.5px] text-[#666] italic leading-none hidden xs:block truncate">
                 Pain &amp; Lifestyle Care
               </span>
             </div>

@@ -56,37 +56,37 @@ export default function TestimonialsPage({ onOpenBooking }) {
       {/* Ratings Overview Strip */}
       <section style={{ backgroundColor: '#ffffff', padding: '30px 0', borderBottom: '1px solid var(--color-border)' }}>
         <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-4 text-center sm:text-left">
             
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <div style={{ fontSize: '2.8rem', fontWeight: '700', color: 'var(--color-primary)', lineHeight: 1 }}>
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+              <div style={{ fontSize: '3.2rem', fontWeight: '700', color: 'var(--color-primary)', lineHeight: 1 }}>
                 4.9
               </div>
-              <div>
-                <div style={{ display: 'flex', gap: '2px', marginBottom: '4px' }}>
+              <div className="flex flex-col items-center sm:items-start">
+                <div className="flex gap-1 mb-1">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={20} fill="#ffd700" color="#ffd700" />
                   ))}
                 </div>
                 <div style={{ fontSize: '0.85rem', color: '#666' }}>
-                  Based on 276+ verified client consultations &amp; treatments
+                  Based on 276+ verified client consultations
                 </div>
               </div>
             </div>
 
-            <div style={{ display: 'flex', gap: '12px' }}>
+            <div className="flex flex-col xs:flex-row w-full sm:w-auto gap-3">
               <button
                 onClick={() => setShowAddReview(!showAddReview)}
-                className="btn-outline"
-                style={{ padding: '10px 20px', fontSize: '0.9rem' }}
+                className="btn-outline w-full sm:w-auto justify-center flex-1"
+                style={{ padding: '12px 20px', fontSize: '0.9rem' }}
               >
                 <Plus size={16} />
                 <span>Write a Review</span>
               </button>
               <button
                 onClick={onOpenBooking}
-                className="btn-primary"
-                style={{ padding: '10px 22px', fontSize: '0.9rem' }}
+                className="btn-primary w-full sm:w-auto justify-center flex-1"
+                style={{ padding: '12px 22px', fontSize: '0.9rem' }}
               >
                 <Calendar size={16} />
                 <span>Book Appointment</span>
@@ -192,7 +192,7 @@ export default function TestimonialsPage({ onOpenBooking }) {
       <section style={{ padding: '60px 0 80px', backgroundColor: 'var(--color-sand)' }}>
         <div className="container">
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '26px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {reviewList.map(item => (
               <div 
                 key={item.id}

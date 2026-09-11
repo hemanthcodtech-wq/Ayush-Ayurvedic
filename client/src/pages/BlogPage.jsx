@@ -26,7 +26,7 @@ export default function BlogPage({ onOpenBooking }) {
       <section style={{ padding: '70px 0 90px', backgroundColor: 'var(--color-sand)' }}>
         <div className="container">
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '30px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map(post => (
               <article 
                 key={post.id}
