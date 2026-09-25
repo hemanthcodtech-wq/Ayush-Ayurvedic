@@ -128,7 +128,7 @@ export const therapies = [
   {
     id: "abhy-dara-relax",
     slug: "abhy-dara-relax",
-    name: "Abhy + dara",
+    name: "Abhygnam+Shirodhara",
     category: "relax",
     categoryName: "Relax",
     duration: "90 Mins",
