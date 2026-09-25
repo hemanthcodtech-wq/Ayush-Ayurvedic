@@ -163,7 +163,7 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
             : 'bg-[#FFFDF9] border-b border-[#e8dec8]/80 shadow-sm'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-[72px]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-[96px]">
           
           {/* Brand Logo & Taglines */}
           <Link 
@@ -171,11 +171,12 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
             className="flex items-center gap-2 sm:gap-3 group shrink min-w-0 text-decoration-none mr-2"
           >
             <div className="relative shrink-0">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-[#c59d5f] shadow-sm overflow-hidden bg-white transition-transform duration-300 group-hover:scale-105">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-[#c59d5f] shadow-md overflow-hidden bg-white transition-transform duration-300 group-hover:scale-105">
                 <img 
                   src="/images/logo.jpg" 
                   alt="Ayush Ayurveda Logo" 
-                  className="w-full h-full object-cover scale-[1.08] object-center"
+                  className="w-full h-full object-cover scale-110"
+                  style={{ objectPosition: 'center 15%', transform: 'translateY(-2px)' }}
                 />
               </div>
               <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#0b351a] rounded-full border border-[#c59d5f] flex items-center justify-center text-[8px] text-[#ffd700]">
@@ -416,7 +417,7 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
 
       {/* 3. MOBILE & TABLET SLIDE-OUT LUXURY DRAWER */}
       {mobileMenuOpen && (
-        <div className="xl:hidden fixed inset-x-0 top-[90px] sm:top-[100px] bottom-0 bg-stone-950/60 backdrop-blur-sm z-40 animate-fadeIn overflow-y-auto">
+        <div className="xl:hidden fixed inset-x-0 top-[116px] sm:top-[128px] bottom-0 bg-stone-950/60 backdrop-blur-sm z-40 animate-fadeIn overflow-y-auto">
           <div className="bg-[#FFFDF9] border-b border-[#e8dec8] p-5 shadow-2xl max-h-screen overflow-y-auto pb-20">
             
             <div className="flex flex-col space-y-1">

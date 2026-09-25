@@ -262,7 +262,8 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
                   <img 
                     src="/images/logo.jpg" 
                     alt="Ayush Logo Badge" 
-                    className="w-full h-full object-cover scale-[1.08] object-center"
+                    className="w-full h-full object-cover object-center"
+                    style={{ objectPosition: 'center 30%' }}
                   />
                 </div>
                 <div>
@@ -306,7 +307,7 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
                     Clinic Consultation &amp; Therapy Hours
                   </div>
                   <div style={{ fontSize: '1.1rem', fontWeight: '700', color: 'var(--color-primary-dark)' }}>
-                    Mon – Sun: 10:00 AM – 8:00 PM
+                    Mon – Sun: 07:00 AM – 8:00 PM
                   </div>
                 </div>
               </div>

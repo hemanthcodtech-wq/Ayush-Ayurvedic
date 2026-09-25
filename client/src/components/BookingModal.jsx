@@ -322,7 +322,7 @@ export default function BookingModal({ isOpen, onClose, preselectedTherapy }) {
               </button>
 
               <div style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.78rem', color: '#888' }}>
-                🔒 Your health data is strictly confidential. Timings: 10:00 AM – 8:00 PM (Mon-Sun).
+                🔒 Your health data is strictly confidential. Timings: 07:00 AM – 8:00 PM (Mon-Sun).
               </div>
             </form>
           )}

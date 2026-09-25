@@ -277,7 +277,7 @@ export default function BookAppointmentPage() {
                     <input 
                       type="tel" 
                       className="form-input" 
-                      placeholder="e.g. 9885162477" 
+                      placeholder="e.g. 96038 55599" 
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       required 

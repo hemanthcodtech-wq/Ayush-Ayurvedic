@@ -12,11 +12,11 @@ export const clinicInfo = {
     pincode: "500067",
     full: "Raichandani 5 Star Complex, S.No 42, Flat No 303, Opp. Pista House, Pet Basheerabad, Kompally, Hyderabad - 500067"
   },
-  phones: ["+91 98851 62477", "+91 98851 62477"],
-  phoneRaw: "+919885162477",
-  whatsappNumber: "919885162477",
+  phones: ["+91 96038 55599", "+91 96038 55599"],
+  phoneRaw: "+919603855599",
+  whatsappNumber: "919603855599",
   email: "info@ayushayurvedapanchakaranam.com",
-  timings: "Mon - Sun: 10:00 AM – 8:00 PM",
+  timings: "Mon - Sun: 07:00 AM – 8:00 PM",
   doctorAvailability: "Prior Appointment Recommended for In-Depth Nadi Pariksha (Pulse Diagnosis)",
   stats: [
     { label: "Years of Healing Excellence", value: "7+" },
@@ -28,7 +28,7 @@ export const clinicInfo = {
     facebook: "https://facebook.com",
     instagram: "https://instagram.com",
     youtube: "https://youtube.com",
-    whatsapp: "https://wa.me/919885162477"
+    whatsapp: "https://wa.me/919603855599"
   }
 };
 
@@ -94,7 +94,7 @@ export const therapies = [
   {
     id: "abhyangam-relax",
     slug: "abhyangam-relax",
-    name: "Abhyangam",
+    name: "Abhygnam",
     category: "relax",
     categoryName: "Relax",
     duration: "45 Mins",
@@ -111,7 +111,7 @@ export const therapies = [
   {
     id: "shirodara-relax",
     slug: "shirodara-relax",
-    name: "Shirodara",
+    name: "Shirodhara",
     category: "relax",
     categoryName: "Relax",
     duration: "55 Mins",
