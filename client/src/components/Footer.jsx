@@ -50,7 +50,7 @@ export default function Footer({ onOpenBooking, onOpenDoshaQuiz }) {
             <div className="flex items-center gap-3 mb-4">
               <div className="w-16 h-16 rounded-full border-2 border-[#c59d5f] overflow-hidden bg-white shrink-0">
                 <img 
-                  src="/images/logo.jpg" 
+                  src="/images/logo.png" 
                   alt="Ayush Ayurveda Logo" 
                   className="w-full h-full object-cover scale-[1.08] object-center"
                 />
@@ -138,9 +138,10 @@ export default function Footer({ onOpenBooking, onOpenDoshaQuiz }) {
               <div className="flex items-start gap-2.5">
                 <MapPin size={16} className="text-[#c59d5f] shrink-0 mt-0.5" />
                 <div className="leading-snug">
-                  <strong className="text-white">Raichandani 5 Star Complex</strong><br />
-                  S.No 42, Flat No 303, Opp. Pista House,<br />
-                  Pet Basheerabad, Kompally, Hyd - 500067
+                  <strong className="text-white">Raichand Ni Five Star Complex</strong><br />
+                  Survey No. 42, Flat No. 303,<br />
+                  Above Vijay Sales, Pet Basheerabad,<br />
+                  Kompally, Hyd - 500067
                 </div>
               </div>
 

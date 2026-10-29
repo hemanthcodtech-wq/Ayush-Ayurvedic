@@ -35,7 +35,7 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
   const heroSlides = [
     {
       title: "Revitalize Your Life With Authentic Kerala Ayurveda",
-      subtitle: "Ancient healing wisdom from God's Own Country now at Raichandani 5 Star Complex, Kompally.",
+      subtitle: "Ancient healing wisdom from God's Own Country now at Raichand Ni Five Star Complex, Kompally.",
       bgImage: "/images/kizhi.jpg",
       tag: "Classical Panchakarma & Pain Care"
     },
@@ -260,7 +260,7 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
               >
                 <div className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-full overflow-hidden border border-[#c59d5f]/50 bg-white">
                   <img 
-                    src="/images/logo.jpg" 
+                    src="/images/logo.png" 
                     alt="Ayush Logo Badge" 
                     className="w-full h-full object-cover object-center"
                     style={{ objectPosition: 'center 30%' }}
@@ -281,7 +281,7 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
               </h2>
 
               <p style={{ fontSize: '1.02rem', color: '#444', lineHeight: '1.7', marginBottom: '16px' }}>
-                Welcome to <strong>Ayush Ayurveda Panchakaranam</strong>, your premier sanctuary of authentic Kerala Ayurveda and holistic healing at <strong>Raichandani 5 Star Complex, Pet Basheerabad, Kompally, Hyderabad</strong>.
+                Welcome to <strong>Ayush Ayurveda Panchakaranam</strong>, your premier sanctuary of authentic Kerala Ayurveda and holistic healing at <strong>Raichand Ni Five Star Complex, Survey No. 42, Flat No. 303, Above Vijay Sales, Pet Basheerabad, Kompally, Hyderabad</strong>.
               </p>
 
               <p style={{ fontSize: '0.95rem', color: '#666', lineHeight: '1.65', marginBottom: '24px' }}>
@@ -886,7 +886,7 @@ export default function HomePage({ setActivePage, onOpenBooking, onSelectTherapy
                 Ready to Experience Pain Relief &amp; Rejuvenation?
               </h2>
               <p style={{ color: '#d1e6d7', fontSize: '1rem', lineHeight: '1.6', marginBottom: '20px' }}>
-                Visit our authentic Kerala Ayurveda center located at <strong>Raichandani 5 Star Complex, Opp. Pista House, Pet Basheerabad, Kompally, Hyderabad</strong>. Open 7 days a week from 10:00 AM to 8:00 PM.
+                Visit our authentic Kerala Ayurveda center located at <strong>Raichand Ni Five Star Complex, Survey No. 42, Flat No. 303, Above Vijay Sales, Pet Basheerabad, Kompally, Hyderabad</strong>. Open 7 days a week from 10:00 AM to 8:00 PM.
               </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
                 <a 

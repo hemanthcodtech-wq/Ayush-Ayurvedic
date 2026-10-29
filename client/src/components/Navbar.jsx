@@ -114,7 +114,7 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
             </span>
             <span className="hidden sm:flex items-center gap-1.5 truncate">
               <MapPin size={13} className="text-[#c59d5f] shrink-0" />
-              <span className="truncate">Raichandani 5 Star Complex, Kompally</span>
+              <span className="truncate">Raichand Ni Five Star Complex, Kompally</span>
             </span>
           </div>
 
@@ -173,7 +173,7 @@ export default function Navbar({ onOpenBooking, onOpenDoshaQuiz }) {
             <div className="relative shrink-0">
               <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-[#c59d5f] shadow-md overflow-hidden bg-white transition-transform duration-300 group-hover:scale-105">
                 <img 
-                  src="/images/logo.jpg" 
+                  src="/images/logo.png" 
                   alt="Ayush Ayurveda Logo" 
                   className="w-full h-full object-cover scale-110"
                   style={{ objectPosition: 'center 15%', transform: 'translateY(-2px)' }}

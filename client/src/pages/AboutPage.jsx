@@ -46,7 +46,7 @@ export default function AboutPage({ setActivePage, onOpenBooking, onOpenDoshaQui
               </p>
 
               <p style={{ fontSize: '0.95rem', color: '#666', lineHeight: '1.65', marginBottom: '24px' }}>
-                Located at <strong>Raichandani 5 Star Complex, Opp. Pista House, Pet Basheerabad, Kompally</strong>, our state-of-the-art facility brings authentic Kerala therapy tables (Droni), traditional bronze brassware, pure herbal medicated decoctions, and certified Kerala therapists directly to North Hyderabad.
+                Located at <strong>Raichand Ni Five Star Complex, Survey No. 42, Flat No. 303, Above Vijay Sales, Pet Basheerabad, Kompally</strong>, our state-of-the-art facility brings authentic Kerala therapy tables (Droni), traditional bronze brassware, pure herbal medicated decoctions, and certified Kerala therapists directly to North Hyderabad.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-7">
@@ -252,7 +252,7 @@ export default function AboutPage({ setActivePage, onOpenBooking, onOpenDoshaQui
             Begin Your Natural Healing Journey Today
           </h2>
           <p style={{ color: '#c2d1c6', fontSize: '1rem', maxWidth: '600px', margin: '0 auto 28px' }}>
-            Visit Raichandani 5 Star Complex, Opp. Pista House, Kompally, Hyderabad or schedule your appointment online.
+            Visit Raichand Ni Five Star Complex, Above Vijay Sales, Kompally, Hyderabad or schedule your appointment online.
           </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <button onClick={onOpenBooking} className="btn-gold animate-pulse-gold">

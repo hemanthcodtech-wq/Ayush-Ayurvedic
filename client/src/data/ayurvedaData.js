@@ -4,13 +4,13 @@ export const clinicInfo = {
   subtitle: "Authentic Kerala Ayurvedic Therapies & Classical Panchakarma",
   heroHeading: "Revitalize Your Life With Authentic Kerala Ayurveda",
   address: {
-    line1: "Raichandani 5 Star Complex, S.No 42, Flat No 303",
-    landmark: "Opp. Pista House, Pet Basheerabad",
+    line1: "Raichand Ni Five Star Complex, Survey No. 42, Flat No. 303",
+    landmark: "Above Vijay Sales, Pet Basheerabad",
     locality: "Kompally",
     city: "Hyderabad",
     state: "Telangana",
     pincode: "500067",
-    full: "Raichandani 5 Star Complex, S.No 42, Flat No 303, Opp. Pista House, Pet Basheerabad, Kompally, Hyderabad - 500067"
+    full: "Raichand Ni Five Star Complex, Survey No. 42, Flat No. 303, Above Vijay Sales, Pet Basheerabad, Kompally, Hyderabad - 500067"
   },
   phones: ["+91 96038 55599", "+91 96038 55599"],
   phoneRaw: "+919603855599",
@@ -762,7 +762,7 @@ export const testimonials = [
     location: "Kompally, Hyderabad",
     rating: 5,
     therapy: "Kadi Vasthi & Ela Kizhi",
-    review: "Ayush Ayurveda Panchakaranam has truly transformed my life. I was suffering from severe L4-L5 disc compression and excruciating sciatica pain for 6 months. After their 7-day Kadi Vasthi and Kizhi treatment, my pain is 95% gone! The therapists are authentic Kerala professionals and the center at Raichandani 5 Star Complex is exceptionally clean and peaceful.",
+    review: "Ayush Ayurveda Panchakaranam has truly transformed my life. I was suffering from severe L4-L5 disc compression and excruciating sciatica pain for 6 months. After their 7-day Kadi Vasthi and Kizhi treatment, my pain is 95% gone! The therapists are authentic Kerala professionals and the center at Raichand Ni Five Star Complex is exceptionally clean and peaceful.",
     date: "August 2025",
     verified: true
   },
@@ -792,7 +792,7 @@ export const testimonials = [
     location: "Suchitra, Hyderabad",
     rating: 5,
     therapy: "Udhwarthanam & Herbal Scrub",
-    review: "The herbal powder massage (Udhwarthanam) along with the steam bath gave phenomenal results for my PCOS weight loss journey and toned my skin amazingly. Truly blissful experience right opposite Pista House.",
+    review: "The herbal powder massage (Udhwarthanam) along with the steam bath gave phenomenal results for my PCOS weight loss journey and toned my skin amazingly. Truly blissful experience above Vijay Sales in Pet Basheerabad.",
     date: "August 2025",
     verified: true
   }
@@ -843,7 +843,7 @@ In this procedure, a sterile cotton pad soaked in lukewarm medicated oils (such 
 - Those with scalp burning, severe hair thinning, or memory fatigue.
 - Patients with early facial nerve weakness or Parkinsonian tremors.
 
-Experience this soothing therapy at our center located at Raichandani 5 Star Complex, Kompally, Hyderabad.`
+Experience this soothing therapy at our center located at Raichand Ni Five Star Complex, Above Vijay Sales, Kompally, Hyderabad.`
   },
   {
     id: "shirodhara-mind-stream",
@@ -1545,7 +1545,7 @@ export const galleryPhotos = [
     id: "g15",
     title: "Ayush Ayurveda Center Emblem",
     category: "Center",
-    image: "/images/logo.jpg",
+    image: "/images/logo.png",
     description: "Our certified Panchakarma and Pain Management clinic in Kompally"
   }
 ];

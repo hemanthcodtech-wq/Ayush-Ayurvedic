@@ -84,7 +84,7 @@ export default function BookingModal({ isOpen, onClose, preselectedTherapy }) {
       `*Date:* ${selectedDate}%0A` +
       `*Time Slot:* ${selectedTime}%0A` +
       `*Health Concern:* ${notes || 'General wellness / pain consult'}%0A` +
-      `*Location:* Raichandani 5 Star Complex, Kompally`;
+      `*Location:* Raichand Ni Five Star Complex, Survey No. 42, Flat No. 303, Above Vijay Sales, Pet Basheerabad, Kompally, Hyderabad - 500067`;
     window.open(`https://wa.me/${clinicInfo.whatsappNumber}?text=${text}`, '_blank');
   };
 
@@ -157,7 +157,7 @@ export default function BookingModal({ isOpen, onClose, preselectedTherapy }) {
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <span style={{ color: '#666' }}>Center Location:</span>
-                  <strong>Raichandani 5 Star Complex, Kompally</strong>
+                  <strong>Raichand Ni Five Star Complex, Above Vijay Sales, Kompally</strong>
                 </div>
               </div>
 

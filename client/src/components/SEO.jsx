@@ -7,8 +7,8 @@ export default function SEO({ title, description, keywords, ogImage, ogType = "w
   const fullTitle = title ? `${title} | ${siteTitle}` : `${siteTitle} | Best Ayurvedic Clinic Kompally`;
   const metaDescription = description || "Authentic Kerala Ayurveda & Classical Panchakarma center specializing in Back Pain, Sciatica, Arthritis, Spondylosis, Migraine, and Full Body Rejuvenation. Home to 35+ therapies and India's largest mineral clay therapy collection.";
   const metaKeywords = keywords || "Kerala Ayurveda Hyderabad, Ayurvedic Massage Kompally, Panchakarma Kompally, Panchakarma Hyderabad, Sciatica Treatment Hyderabad, Ayurvedic Pain Relief";
-  const image = ogImage || "https://ayushayurvedapanchakaranam.com/images/logo.jpg";
-  const currentUrl = typeof window !== 'undefined' ? window.location.href : "https://ayushayurvedapanchakaranam.com/";
+  const image = ogImage || "https://www.ayushayurvedahealth.com/images/logo.png";
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : "https://www.ayushayurvedahealth.com/";
 
   return (
     <Helmet>

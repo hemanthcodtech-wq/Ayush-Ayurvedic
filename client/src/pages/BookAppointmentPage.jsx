@@ -90,7 +90,7 @@ export default function BookAppointmentPage() {
       `*Date:* ${selectedDate}%0A` +
       `*Time Slot:* ${selectedTime}%0A` +
       `*Notes / Health Issues:* ${notes || 'General consultation / Pain care'}%0A` +
-      `*Center:* Raichandani 5 Star Complex, Kompally, Hyderabad`;
+      `*Center:* Raichand Ni Five Star Complex, Survey No. 42, Flat No. 303, Above Vijay Sales, Pet Basheerabad, Kompally, Hyderabad - 500067`;
     window.open(`https://wa.me/${clinicInfo.whatsappNumber}?text=${text}`, '_blank');
   };
 
@@ -109,7 +109,7 @@ export default function BookAppointmentPage() {
             Book Your Ayurvedic Session
           </h1>
           <p style={{ color: '#d1e6d7', fontSize: '1.1rem', maxWidth: '720px', margin: '0 auto' }}>
-            Reserve your appointment with certified Kerala Ayurvedic Vaidyas and therapists at Raichandani 5 Star Complex, Kompally, Hyderabad.
+            Reserve your appointment with certified Kerala Ayurvedic Vaidyas and therapists at Raichand Ni Five Star Complex, Above Vijay Sales, Kompally, Hyderabad.
           </p>
         </div>
       </section>
@@ -153,7 +153,7 @@ export default function BookAppointmentPage() {
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span style={{ color: '#666' }}>Center Location:</span>
-                    <strong>Raichandani 5 Star Complex, Kompally, Hyd</strong>
+                    <strong>Raichand Ni Five Star Complex, Survey No. 42, Flat No. 303, Above Vijay Sales, Kompally, Hyd</strong>
                   </div>
                 </div>
 
@@ -318,7 +318,7 @@ export default function BookAppointmentPage() {
                 </button>
 
                 <div style={{ textAlign: 'center', marginTop: '14px', fontSize: '0.82rem', color: '#777' }}>
-                  📍 Raichandani 5 Star Complex, Opp. Pista House, Pet Basheerabad, Kompally, Hyderabad - 500067
+                  📍 Raichand Ni Five Star Complex, Survey No. 42, Flat No. 303, Above Vijay Sales, Pet Basheerabad, Kompally, Hyderabad - 500067
                 </div>
 
               </form>

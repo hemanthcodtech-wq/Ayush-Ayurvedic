@@ -33,7 +33,7 @@ export default function ContactPage({ onOpenBooking }) {
   };
 
   const handleOpenGoogleMaps = () => {
-    const query = encodeURIComponent("Raichandani 5 star complex Pet basheerabad Kompally Hyderabad 500067");
+    const query = encodeURIComponent("Raichand Ni Five Star Complex Survey No 42 Flat 303 Above Vijay Sales Pet Basheerabad Kompally Hyderabad 500067");
     window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank');
   };
 
@@ -48,7 +48,7 @@ export default function ContactPage({ onOpenBooking }) {
             Contact Us &amp; Location
           </h1>
           <p style={{ color: '#d1e6d7', fontSize: '1.1rem', maxWidth: '720px', margin: '0 auto' }}>
-            We look forward to welcoming you to our authentic Ayurvedic sanctuary at Raichandani 5 Star Complex, Kompally.
+            We look forward to welcoming you to our authentic Ayurvedic sanctuary at Raichand Ni Five Star Complex, Above Vijay Sales, Kompally.
           </p>
         </div>
       </section>
@@ -83,9 +83,10 @@ export default function ContactPage({ onOpenBooking }) {
                       Center Address
                     </h3>
                     <div style={{ fontSize: '0.9rem', color: '#444', lineHeight: '1.5' }}>
-                      <strong>Raichandani 5 Star Complex</strong><br />
-                      S.No 42, Flat No 303, Opp. Pista House,<br />
-                      Pet Basheerabad, Kompally, Hyderabad - 500067
+                      <strong>Raichand Ni Five Star Complex</strong><br />
+                      Survey No. 42, Flat No. 303,<br />
+                      Above Vijay Sales, Pet Basheerabad,<br />
+                      Kompally, Hyderabad - 500067
                     </div>
                     <button
                       onClick={handleOpenGoogleMaps}
@@ -276,7 +277,7 @@ export default function ContactPage({ onOpenBooking }) {
                   Location Locator
                 </div>
                 <div style={{ fontSize: '1.15rem', fontWeight: '600' }}>
-                  Raichandani 5 Star Complex, Opp. Pista House, Pet Basheerabad, Kompally
+                  Raichand Ni Five Star Complex, Above Vijay Sales, Pet Basheerabad, Kompally
                 </div>
               </div>
               <button 
@@ -294,21 +295,21 @@ export default function ContactPage({ onOpenBooking }) {
               <div style={{ borderLeft: '3px solid var(--color-primary)', paddingLeft: '14px' }}>
                 <strong style={{ color: 'var(--color-primary-dark)' }}>From Secunderabad:</strong>
                 <p style={{ fontSize: '0.85rem', color: '#666', marginTop: '4px' }}>
-                  Take Medchal Highway (NH 44) through Suchitra Junction. Turn right opposite Pista House in Pet Basheerabad into Raichandani Complex.
+                  Take Medchal Highway (NH 44) through Suchitra Junction. Turn right at Vijay Sales in Pet Basheerabad into Raichand Ni Five Star Complex.
                 </p>
               </div>
 
               <div style={{ borderLeft: '3px solid var(--color-primary)', paddingLeft: '14px' }}>
                 <strong style={{ color: 'var(--color-primary-dark)' }}>From Medchal / ORR:</strong>
                 <p style={{ fontSize: '0.85rem', color: '#666', marginTop: '4px' }}>
-                  Drive towards Kompally center on NH 44, located prominently opposite Pista House in Pet Basheerabad.
+                  Drive towards Kompally center on NH 44, located prominently above Vijay Sales in Pet Basheerabad.
                 </p>
               </div>
 
               <div style={{ borderLeft: '3px solid var(--color-gold)', paddingLeft: '14px' }}>
                 <strong style={{ color: 'var(--color-primary-dark)' }}>Parking &amp; Accessibility:</strong>
                 <p style={{ fontSize: '0.85rem', color: '#666', marginTop: '4px' }}>
-                  Ample customer parking available at Raichandani 5 Star Complex with elevator access to Flat 303.
+                  Ample customer parking available at Raichand Ni Five Star Complex with elevator access to Flat 303.
                 </p>
               </div>
             </div>

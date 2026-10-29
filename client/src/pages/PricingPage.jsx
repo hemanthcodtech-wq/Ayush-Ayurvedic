@@ -42,7 +42,7 @@ export default function PricingPage({ onOpenBooking }) {
             Ayurveda Therapies &amp; Prices
           </h1>
           <p style={{ color: '#d1e6d7', fontSize: '1.1rem', maxWidth: '720px', margin: '0 auto' }}>
-            Invest in your long-term health with authentic Kerala therapies. Fixed, transparent session rates with zero hidden fees at Raichandani 5 Star Complex, Kompally.
+            Invest in your long-term health with authentic Kerala therapies. Fixed, transparent session rates with zero hidden fees at Raichand Ni Five Star Complex, Kompally.
           </p>
         </div>
       </section>

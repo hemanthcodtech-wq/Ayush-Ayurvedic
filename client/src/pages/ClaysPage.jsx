@@ -134,7 +134,7 @@ export default function ClaysPage({ onOpenBooking, setActivePage }) {
               Ready to experience our Moroccan & Natural Clay Therapies?
             </h3>
             <p className="text-stone-400 text-sm mt-1">
-              Visit us at Raichandani 5 Star Complex, Opp. Pista House, Kompally, Hyderabad.
+              Visit us at Raichand Ni Five Star Complex, Survey No. 42, Flat No. 303, Above Vijay Sales, Kompally, Hyderabad.
             </p>
           </div>
 
