@@ -41,7 +41,8 @@ export default function BookingModal({ isOpen, onClose, preselectedTherapy }) {
     const randomId = 'AYUSH-' + Math.floor(100000 + Math.random() * 900000);
     
     try {
-      const response = await fetch('http://localhost:5000/api/book-appointment', {
+      const API_URL = (import.meta.env.VITE_API_URL || 'https://ayush-ayurvedic-ewdv.vercel.app').replace(/\/+$/, '');
+      const response = await fetch(`${API_URL}/api/book-appointment`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

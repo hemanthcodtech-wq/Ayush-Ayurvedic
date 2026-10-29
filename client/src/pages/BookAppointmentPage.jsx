@@ -45,7 +45,7 @@ export default function BookAppointmentPage() {
     const id = 'AYUSH-' + Math.floor(100000 + Math.random() * 900000);
     
     try {
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const API_URL = (import.meta.env.VITE_API_URL || 'https://ayush-ayurvedic-ewdv.vercel.app').replace(/\/+$/, '');
       const response = await fetch(`${API_URL}/api/book-appointment`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
